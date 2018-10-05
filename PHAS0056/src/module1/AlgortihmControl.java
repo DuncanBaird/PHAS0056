@@ -31,7 +31,7 @@ public class AlgortihmControl {
 		int loops = 0;
 		float timeDif = 0;
 		// while loop to loop until maxTime time has passed
-		while(timeDif < maxTime) {
+		while(timeDif < (maxTime*1000)) {
 			timeDif = System.currentTimeMillis() - timeNow;
 			loops++;
 			if(loops % loopSteps == 0) { // if statement to print the number of loops every hundred loops
@@ -52,9 +52,9 @@ public class AlgortihmControl {
 		System.out.println("Result of timer method is:");
 		int loopsTotal = timer(5,100);
 		System.out.println("Total loops run is " + loopsTotal);
-		/*int loopsTotal2 = timer(10,50000);
+		int loopsTotal2 = timer(10,50000);
 		System.out.println("Total loops run is " + loopsTotal2);
-		System.out.println("Why result?)*/
+		System.out.println("Why result?");
 		
 	}
 
