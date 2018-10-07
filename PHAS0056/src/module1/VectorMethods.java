@@ -2,7 +2,9 @@ package module1;
 
 public class VectorMethods {
 
+	// method for computing dot product of two 3D vectors
 	public static double dotProduct(double a1,double a2, double a3, double b1, double b2, double b3) {
+		// unused array form of method
 		/*  double[] a, double[] b
 		int n = a.length;
 		double sum = 0;
@@ -11,12 +13,14 @@ public class VectorMethods {
 			sum += a[i] * b[i];
 			
 		}*/
-		double sum = (a1 * b1)+(a2 * b2)+(a3 * b3);
+		double sum = (a1 * b1)+(a2 * b2)+(a3 * b3); //equation for dot product
 		
-		return sum;
+		return sum; // return of dot product
 	}
 	
+	// method for computing magnitude of 3D vector
 	public static double magnitude(double a1,double a2, double a3) {
+		// unused array form
 		/* double[]a
 		int n = a.length;
 		double sum = 0;
@@ -27,21 +31,26 @@ public class VectorMethods {
 			
 		}
 		return mag = Math.pow(sum, 0.5);*/
-		double mag = Math.pow((a1*a1)+(a2*a2)+(a3*a3), 0.5);
-		return mag;
+		double mag = Math.pow((a1*a1)+(a2*a2)+(a3*a3), 0.5); // calculation for magnitude
+		return mag; // return magnitude value as double
 
 	}
-	
+
+	// method for computing the radian angle between two 3D vectors
 	public static double angle(double a1,double a2, double a3, double b1, double b2, double b3) {
+		// calculation using dotproduct and magnitude method for angle
 		double theta = Math.acos(dotProduct(a1,a2,a3,b1,b2,b3) / (magnitude(a1,a2,a3)*magnitude(b1,b2,b3)));
-		return theta;
+		return theta; // return angle value as double in radians
 	}
 	
+	// main method for using previous methods
 	public static void main(String[] args) {
-		// Add comments
+		// creating object for calling methods
 		VectorMethods vm = new VectorMethods();
 		
+		// unused array form
 		/*double[] v1 = {1,1,1}; double[] v2 = {2,2,2};*/
+		
 		// defining vectors a and b
 		double a1 = 1, a2 = 1, a3 = 1, b1 = 1, b2 = 1, b3 =1;
 		// calling the dot product method for vectors a and b and outputting result
