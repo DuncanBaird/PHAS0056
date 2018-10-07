@@ -57,11 +57,16 @@ public class AlgortihmControl {
 		System.out.println("Result of increment method is:");
 		increment();
 		System.out.println("Result of timer method is:");
-		int loopsTotal = timer(5,100);
+		int loopsTotal = timer(10,1000);
 		System.out.println("Total loops run is " + loopsTotal);
 		int loopsTotal2 = timer(10,50000);
-		System.out.println("Total loops run is " + loopsTotal2);
-		System.out.println("Why result?"); //small explanation
+		System.out.println("Total loops for steps of 100 is " + loopsTotal);
+		System.out.println("Total loops for steps of 50000 is " + loopsTotal2);	
+		// small explanation
+		System.out.println("Why the difference in result? When the method is called with a"
+				+ " larger number of loops between printing the number of loops run so far"
+				+ " is printed less often thus the method runs more quickly and therefore"
+				+ " the total number of loops is greater.");
 		
 	}
 
