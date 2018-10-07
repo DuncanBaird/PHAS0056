@@ -2,6 +2,7 @@ package module1;
 
 public class DataTypes {
 
+	//main method
 	public static void main(String[] args) {
 		// assign value to double variable, doubVar and then print name and value
 		double doubVar = 5.0;
