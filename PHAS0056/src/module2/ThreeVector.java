@@ -24,14 +24,14 @@ public class ThreeVector {
 	
 
 	// method for calculating magnitude
-	double magnitude(double a1, double a2, double a3) {
-		double mag = Math.pow((a1*a1)+(a2*a2)+(a3*a3), 0.5);
+	public double magnitude() {
+		double mag = Math.pow((this.x*this.x)+(this.y*this.y)+(this.y*this.y), 0.5);
 		return mag;
 	}
 	
 	// method for calculating unit vector of three vector
 	ThreeVector unitVector() {
-		double mag = this.magnitude(this.x, this.y, this.z);
+		double mag = this.magnitude();
 		double unitVectorx = this.x / mag;
 		double unitVectory = this.y / mag;
 		double unitVectorz = this.z/ mag;
@@ -61,11 +61,39 @@ public class ThreeVector {
 	}
 	
 	// static add method
-	public static ThreeVector add(ThreeVector v1, ThreeVector v2) {
-		new ThreeVector() = v3;
-		
-		return new ThreeVector 
+	public static ThreeVector add(ThreeVector v1, ThreeVector v2) {	
+		return new ThreeVector(v1.x + v2.x,v1.y + v2.y,v1.z + v2.z);
 	}
+	
+	// static angle method (radians)
+	public static double angle(ThreeVector v1, ThreeVector v2) {
+		double angle = Math.acos(scalarProduct(v1,v2)/(v1.magnitude()*v2.magnitude()));
+		return angle;
+		
+	}
+	
+	//// Non-Static Methods
+	
+	// Non-static scalar product method
+	public double scalarProduct(ThreeVector v) {
+		return scalarProduct(this,v);
+	}
+	
+	// Non-Static vector product method
+	public ThreeVector vectorProduct(ThreeVector v) {
+		return vectorProduct(this,v);
+	}
+	
+	// Non-static add method
+	public ThreeVector add(ThreeVector v) {
+		return add(this,v);
+	}
+	
+	// Non-Static angle method (radians)
+	public double angle(ThreeVector v) {
+		return angle(this,v);
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
