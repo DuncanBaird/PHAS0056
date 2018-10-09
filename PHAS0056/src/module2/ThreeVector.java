@@ -99,10 +99,10 @@ public class ThreeVector {
 		// TODO Auto-generated method stub
 		ThreeVector vector = new ThreeVector();
 		vector.setThreeVector(1,1,1);
-		System.out.println("The x componenent of the vector is " + vector.x);
+		/*System.out.println("The x componenent of the vector is " + vector.x);
 		System.out.println("The magnitude of the vector is " + vector.magnitude(vector.x,vector.y,vector.z));
 		System.out.println("The unitvector of the vector is " + vector.unitVector().toString());
-		System.out.println(vector.toString());
+		System.out.println(vector.toString());*/
 	
 	}
 
