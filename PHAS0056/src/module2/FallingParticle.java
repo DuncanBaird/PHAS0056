@@ -42,13 +42,13 @@ public class FallingParticle {
 	// other methods
 	public void doTimeStep(double deltaT) {
 		double a = (this.d*Math.pow(this.v, 2)/this.m)-this.g;
-		this.v = a*deltaT;
-		this.z = this.v*deltaT;
+		this.v = this.v + a*deltaT;
+		this.z = this.z + this.v*deltaT;
 	}
 	
 	public void drop(double deltaT) {
-		this.z = this.hashCode();
-		
+		this.z = this.h;
+		this.t = 0;
 		while(this.z>0) {
 			this.t += deltaT;
 			doTimeStep(deltaT);
