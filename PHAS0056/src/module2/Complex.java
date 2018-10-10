@@ -61,7 +61,7 @@ public class Complex {
 		return result;
 	}
 	
-	// method for defining cartesian complex number from polar form
+	// method for defining Cartesian complex number from Polar form
 	public Complex setFromModulusAngle(double mag, double ang) {
 		this.re = mag * Math.cos(ang);
 		this.im = mag * Math.sin(ang);
@@ -70,12 +70,35 @@ public class Complex {
 	
 	//// static methods
 	
+	// static method to add complex numbers
+	public static Complex add(Complex w, Complex z) {
+		return new Complex(w.re+z.re,w.im+z.im);
+	}
+	
+	// static method to subtract complex numbers
+	public static Complex subtract(Complex w, Complex z) {
+		return new Complex(w.re-z.re,w.im-z.im);
+	}
+	
+	// static method to multiply complex numbers
+	public static Complex multiply(Complex w, Complex z) {
+		return new Complex(((w.re*z.re)-(w.im*z.im)),((w.re*z.im)+(w.im*z.re)));
+	}
+	
+	// static method to divide complex numbers
+	public static Complex divide(Complex w, Complex z) {
+		double quotient_real = ((w.re*z.re)+(w.im*z.im))/((Math.pow(z.re, 2)+Math.pow(z.im, 2)));
+		double quotient_im = ((w.im*z.re)-(w.re*z.im))/((Math.pow(z.re, 2)+Math.pow(z.im, 2)));
+		return new Complex(quotient_real, quotient_im);
+	}
 	
 	// method for converting to string complex number
 	public String toString() {	
 			return "Re(w) = "+this.re+", Im(w) = "+this.im;
 		}
-	
+	public static final Complex ONE = new Complex(1,0); 
+	public static final Complex ZERO = new Complex (0,0);
+	public static final Complex I = new Complex (0,1);
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
