@@ -40,9 +40,5 @@ public class ParticleMain {
 				+ "\nparticle at the bottom and the time taken to"
 				+ "\nreach the bottom become more and more precise"
 				+ "\n(and presumably more accurate).");
-		
-		
-
 	}
-
 }
