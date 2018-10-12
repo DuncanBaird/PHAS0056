@@ -57,5 +57,4 @@ public class TestThreeVector {
 	System.out.println("Printing a Java object with no toString method defiend results "
 			+ "in the object type and hash code being printed in base 16");
 	}
-
 }
