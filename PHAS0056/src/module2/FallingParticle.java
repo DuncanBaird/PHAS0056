@@ -70,4 +70,6 @@ public class FallingParticle {
 			doTimeStep(deltaT);
 		}
 	}
+	public static void main(String[] args) {
+	}
 }
