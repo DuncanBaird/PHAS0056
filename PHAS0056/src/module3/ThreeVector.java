@@ -26,7 +26,10 @@ public class ThreeVector {
 		return mag;
 	}
 	
-	ThreeVector unitVector() {
+	ThreeVector unitVector() throws Exception {
+		if ((this.x == 0.0) && (this.y == 0.0) && (this.z == 0.0)) {
+			throw new Exception("Can't find unit vector of zero vector" + this.toString());
+		}
 		// unit vector = vector / magnitude of vector
 		double mag = this.magnitude();
 		double unitVectorx = this.x / mag;
@@ -61,7 +64,10 @@ public class ThreeVector {
 		return new ThreeVector(v1.x + v2.x,v1.y + v2.y,v1.z + v2.z);
 	}
 	
-	public static double angle(ThreeVector v1, ThreeVector v2) { // angle in radians
+	public static double angle(ThreeVector v1, ThreeVector v2) throws Exception { // angle in radians
+		if (((v1.x == 0.0) && (v1.y == 0.0) && (v1.z == 0.0))|((v2.x == 0.0) && (v2.y == 0.0) && (v2.z == 0.0))) {
+			throw new Exception("Can't find angle of zero vector" );
+		}
 		// theta = arccos(a.b / |a||b|)
 		double angle = Math.acos(scalarProduct(v1,v2)/(v1.magnitude()*v2.magnitude()));
 		return angle;
@@ -82,7 +88,7 @@ public class ThreeVector {
 		return add(this,v);
 	}
 	
-	public double angle(ThreeVector v) {
+	public double angle(ThreeVector v) throws Exception {
 		return angle(this,v);
 	}
 	public static void main(String[] args) {
