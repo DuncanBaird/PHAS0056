@@ -16,7 +16,13 @@ public class FallingParticle {
 		d = 0.0;
 	}
 	
-	public FallingParticle(double m, double d) {
+	public FallingParticle(double m, double d) throws Exception {
+		if (m <= 0.0) {
+			throw new Exception("Mass must be positive");
+		}
+		if (d <= 0.0) {
+			throw new Exception("Drag coefficient must be positive");
+		}
 		this.m = m;
 		this.d = d;
 	}
@@ -24,7 +30,10 @@ public class FallingParticle {
 	//// set and get methods
 	
 	// set initial height of particle
-	public void setH(double h) {
+	public void setH(double h) throws Exception {
+		if (h <= 0.0) {
+			throw new Exception("Height must be positive");
+		}
 		this.h = h;
 	}
 	
@@ -64,6 +73,7 @@ public class FallingParticle {
 	public void drop(double deltaT) {
 		this.z = this.h; // initialise particle position
 		this.t = 0; // initialise time frame
+		setV(0); // initialise velocity
 		// loop to run simulation till particle reaches bottom of vessel
 		while(this.z>0) {
 			this.t += deltaT; // increment time by time increment
