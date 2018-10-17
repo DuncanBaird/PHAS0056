@@ -65,7 +65,7 @@ public class ThreeVector {
 	}
 	
 	public static double angle(ThreeVector v1, ThreeVector v2) throws Exception { // angle in radians
-		if (((v1.x == 0.0) && (v1.y == 0.0) && (v1.z == 0.0))|((v2.x == 0.0) && (v2.y == 0.0) && (v2.z == 0.0))) {
+		if ((v1.magnitude() == 0)|(v2.magnitude() == 0)) {
 			throw new Exception("Can't find angle of zero vector" );
 		}
 		// theta = arccos(a.b / |a||b|)
