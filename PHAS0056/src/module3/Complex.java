@@ -93,7 +93,7 @@ public class Complex {
 	
 	public static Complex divide(Complex w, Complex z) throws Exception{
 		if ((z.re == 0.0) && (z.im == 0.0)) {
-			throw new Exception("Can't divide by a zero complex number" + z.toString());
+			throw new Exception("Can't divide by a zero complex number " + z.toString());
 		}
 		// w/z = [Re(w)*Re(z)+Im(w)*Im(z)/Re(z)^2+Im(z)]+i[Im(w)*Re(z)+Re(w)*Im(z)/Re(z)^2+Im(z)]
 		double quotient_real = ((w.re*z.re)+(w.im*z.im))/((Math.pow(z.re, 2)+Math.pow(z.im, 2)));
