@@ -39,9 +39,12 @@ public class Complex {
 		return new Complex(this.re,-1*this.im);
 	}
 	
-	public Complex normalised() {
+	public Complex normalised() throws Exception {
 		// normalised z = z / |z|
-		double normalisation = 1/this.modulus();
+				if ((this.re == 0.0) && (this.im == 0.0)) {
+			throw new Exception("Can't normalise a zero complex number" + this.toString());
+		}
+		double normalisation = 1/this.modulus();		
 		return new Complex(normalisation*this.re,normalisation*this.im);
 	}
 	
@@ -88,7 +91,10 @@ public class Complex {
 		return new Complex(((w.re*z.re)-(w.im*z.im)),((w.re*z.im)+(w.im*z.re)));
 	}
 	
-	public static Complex divide(Complex w, Complex z) {
+	public static Complex divide(Complex w, Complex z) throws Exception{
+		if ((z.re == 0.0) && (z.im == 0.0)) {
+			throw new Exception("Can't divide by a zero complex number" + z.toString());
+		}
 		// w/z = [Re(w)*Re(z)+Im(w)*Im(z)/Re(z)^2+Im(z)]+i[Im(w)*Re(z)+Re(w)*Im(z)/Re(z)^2+Im(z)]
 		double quotient_real = ((w.re*z.re)+(w.im*z.im))/((Math.pow(z.re, 2)+Math.pow(z.im, 2)));
 		double quotient_im = ((w.im*z.re)-(w.re*z.im))/((Math.pow(z.re, 2)+Math.pow(z.im, 2)));
