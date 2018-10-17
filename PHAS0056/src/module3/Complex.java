@@ -63,7 +63,7 @@ public class Complex {
 	}
 	
 	public String toString() {	
-			return "Re(w) = "+this.re+", Im(w) = "+this.im;
+			return "Re() = "+this.re+", Im() = "+this.im;
 		}
 	
 	// method for defining Cartesian complex number from Polar form
