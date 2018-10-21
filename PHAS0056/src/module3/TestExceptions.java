@@ -25,6 +25,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}		
+		
 		//// ThreeVector
 		ThreeVector v1 = new ThreeVector(0,0,0);
 		ThreeVector v2 = new ThreeVector(2,2,2);
@@ -44,6 +45,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		
 		//// FallingParticle
 		/*FallingParticle particle = null;*/
 		try { // attempt to drop negative mass
