@@ -22,7 +22,7 @@ public class ThreeVector {
 	
 	public double magnitude() {
 		// magnitude of vector = (x*x+y*y+z*z)^0.5
-		double mag = Math.pow((this.x*this.x)+(this.y*this.y)+(this.y*this.y), 0.5);
+		double mag = Math.pow((this.x*this.x)+(this.y*this.y)+(this.z*this.z), 0.5);
 		return mag;
 	}
 	
