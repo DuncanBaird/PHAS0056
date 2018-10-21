@@ -12,7 +12,7 @@ public class TestExceptions {
 		System.out.println("Complex number w is " +w);
 		System.out.println("Complex number z is " +z);
 		
-		try { // attempt z/0 type calculation
+		try { // attempt z/0 type calculation 
 			System.out.println(Complex.divide(z, w));
 		}
 		catch (Exception e) {

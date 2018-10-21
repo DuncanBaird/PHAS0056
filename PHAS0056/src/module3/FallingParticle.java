@@ -2,7 +2,7 @@ package module3;
 
 public class FallingParticle {
 
-	// simulation variables
+	// simulation variables 
 	private double m; // mass of particle
 	private double d; // drag coefficient
 	private double t = 0; // time since drop 

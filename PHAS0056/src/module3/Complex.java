@@ -23,7 +23,7 @@ public class Complex {
 	}
 	
 	public double modulus() {
-		// |x + iy| = (x*x+y*y)^0.5
+		// |x + iy| = (x*x+y*y)^0.5 
 		double mod = Math.sqrt(Math.pow(this.re, 2) + Math.pow(this.im, 2));
 		return mod;
 	}

@@ -7,7 +7,7 @@ import java.lang.StringBuilder;
 
 public class Alphabet {
 
-	// generates random character in integer range 0-127 (inclusive)
+	// generates random character in integer range 0-127 (inclusive) 
 	public static char randomCharacter() {
 		Random random = new Random();
 		int integer = random.nextInt(127)+1;

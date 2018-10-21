@@ -2,7 +2,7 @@ package module3;
 
 public class ThreeVector {
 	
-	// elements of vector
+	// elements of vector 
 	double x; double y; double z;
 	
 	public ThreeVector() {
