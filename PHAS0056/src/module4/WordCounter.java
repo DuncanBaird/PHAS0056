@@ -15,6 +15,18 @@ public class WordCounter {
 		return br;
 	}
 	
+	public static BufferedReader brFromFile(String fileName)
+			throws FileNotFoundException {
+		// reads file and returns data as BufferedReader object
+		FileReader fr = new FileReader(fileName);
+		BufferedReader br = new BufferedReader(fr);
+		return br;
+	}
+	
+	public static int countWordsInResource(BufferedReader dataAsBR) {
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
