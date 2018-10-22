@@ -38,7 +38,17 @@ public class WordCounter {
 	
 	public static void main(String[] args) {
 		// Testing above methods
-
+		try {
+			BufferedReader web = brFromURL(
+					"http://www.hep.ucl.ac.uk/undergrad/"
+					+ "3459/data/module4/module4_text.txt");
+			String line; 
+			while ((line = web.readLine()) != null) {
+			        System.out.println(line);
+			}
+		}
+		catch(java.io.IOException e){
+			System.out.println(e);
+		}		
 	}
-
 }
