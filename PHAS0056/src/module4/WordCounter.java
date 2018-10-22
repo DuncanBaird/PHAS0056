@@ -5,7 +5,9 @@ import java.net.URL;
 
 public class WordCounter {
 
-	public static BufferedReader brFromURL(String urlName) throws IOException {
+	public static BufferedReader brFromURL(String urlName) 
+			throws IOException {
+		// reads URL and returns data as BufferedReader object
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
