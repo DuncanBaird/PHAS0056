@@ -2,6 +2,7 @@ package module4;
 
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 public class WordCounter {
 
@@ -24,7 +25,15 @@ public class WordCounter {
 	}
 	
 	public static int countWordsInResource(BufferedReader dataAsBR) {
-		
+		// returns the number of words in the input data
+		Scanner s = new Scanner(dataAsBR);
+		int wordCount = 0;
+		while (s.hasNext()) {
+			wordCount ++;
+			s.next();
+		}
+		s.close();
+		return wordCount;
 	}
 	
 	public static void main(String[] args) {
