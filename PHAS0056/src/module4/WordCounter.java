@@ -37,7 +37,7 @@ public class WordCounter {
 	}
 	
 	public static void main(String[] args) {
-		// Testing above methods
+		// Testing brFromURL method
 		try {
 			BufferedReader web = brFromURL(
 					"http://www.hep.ucl.ac.uk/undergrad/"
@@ -49,6 +49,19 @@ public class WordCounter {
 		}
 		catch(java.io.IOException e){
 			System.out.println(e);
-		}		
+		}
+		
+		// testing countWordsinResource
+		try {
+			BufferedReader web = brFromURL(
+					"http://www.hep.ucl.ac.uk/undergrad/"
+					+ "3459/data/module4/module4_text.txt");
+			int wordCount = countWordsInResource(web);
+			System.out.println("The word count from module4_text.txt"
+					+ " is: " + wordCount);
+		}
+		catch(java.io.IOException e){
+			System.out.println(e);
+		}
 	}
 }
