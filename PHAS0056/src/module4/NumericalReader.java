@@ -12,12 +12,14 @@ public class NumericalReader {
     private double sumOfValues;
     public String fileLoc;
 	
-	public static String getStingFromKeyboard()
+    // ask user to input file directory for program
+	public static String getStringFromKeyboard()
 			throws IOException {
 		System.out.println("Enter directory:");
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		String s = br.readLine();
+		// confirm to user what directory the inputed
 		System.out.println("You typed: " + s);
 		if (s.length() != 0) {
 		      return s;
@@ -26,12 +28,11 @@ public class NumericalReader {
 		      System.out.println();
 		      return System.getProperty("user.home");
 		    }
-	
 	}
-	
+
+	// reads URL and returns data as BufferedReader object
 	public BufferedReader brFromURL(String urlName)
 			throws IOException {
-		// reads URL and returns data as BufferedReader object
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -40,10 +41,11 @@ public class NumericalReader {
 	}
 	
 	void analysisStart(String dataFile) throws IOException {
-		// Writes file in path
+		// Writes file in chosen directory
 		File outputfile = new File(dataFile);
 	    FileWriter fw = new FileWriter(outputfile);
 	    fw.close();
+	    // initialise variables
 	    minValue = 0;
 		maxValue = 0;
 		nValues = 0;
@@ -52,44 +54,56 @@ public class NumericalReader {
 	
 	void analyseData(String line) throws IOException {
 		Scanner s = new Scanner(line);
-	    BufferedWriter bw = new BufferedWriter(new FileWriter(this.fileLoc, true));
-
-	    while (s.hasNext()) { // Checks for remaining tokens
-
-	      if (s.hasNextDouble()) {
+		// new BufferedWriter object for writing file to file.Loc
+	    BufferedWriter bw = new BufferedWriter(
+	    		new FileWriter(this.fileLoc, true));
+	    // checks next token
+	    while (s.hasNext()) {
+	    	
+		// if token is type integer
+	    if (s.hasNextDouble()) { 
 	        Double number = s.nextDouble();
 	        System.out.println(number);
 	        String numberAsString = Double.toString(number);
-	        bw.write(numberAsString); // Writes string representation of double to file
+	        // writes string representation of token
+	        bw.write(numberAsString);
 	        bw.newLine();
-	        this.nValues++; // Updates variables
+	        // update variables
+	        this.nValues++;
 	        this.sumOfValues += number;
 
-	        if (this.minValue > number) { // Updates min/max if a token is less/more than current value
+	        // update min and max if token is different than current
+	        if (this.minValue > number) { 
 	          this.minValue = number;
 	        } else if (this.maxValue < number) {
 	          this.maxValue = number;
 	        }
 	      }
 
-	      else if (s.hasNextInt()) { // Works same as for doubles
-	        int number = s.nextInt();
+	    // if token is type integer
+	    else if (s.hasNextInt()) {
+	    	int number = s.nextInt();
 	        System.out.println(number);
+	        // writes string representation of token
 	        bw.write(number);
 	        bw.newLine();
+	        // update variables
 	        this.nValues++;
 	        this.sumOfValues += number;
-
+	        
+	        // update min and max if token is different than current
 	        if (this.minValue > number) {
 	          this.minValue = number;
 	        } else if (this.maxValue < number) {
 	          this.maxValue = number;
 	        }
-	      } else { // Goes to new line for non-numbers
-	        s.nextLine();
+	      } 
+	    // Goes to new line for non-numbers
+	    else { 
+	    	s.nextLine();
 	      }
-
 	    }
+	    // close resources
 	    s.close();
 	    bw.close();
 	}
@@ -102,11 +116,40 @@ public class NumericalReader {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		/*// TODO Auto-generated method stub
 		 NumericalReader numRead_1 = new NumericalReader();
 		 String dataFile = ("N:" + File.separator + "mywork"
-		 + File.separator + "numbers.txt");
+		 + File.separator + "numbers.txt");*/
 		 
+		// Creates objects holding variables
+		 NumericalReader nr1 = new NumericalReader(); 
+		 NumericalReader nr2 = new NumericalReader();
+		 String line = "";
+		 String saveDir = "";
+		 
+		    try {
+		        saveDir = NumericalReader.getStringFromKeyboard();
+		      } 
+		    catch (java.io.IOException e) {
+		        System.out.println(e);
+		      }
+		      try {
+		        nr1.fileLoc = (saveDir + File.separator + "numbers1.txt");
+		        System.out.println("Saving to " + nr1.fileLoc);
+		        nr1.analysisStart(nr1.fileLoc);
+
+		        // Creates BufferedReader object from a web page
+		        BufferedReader webBuffer1 = nr1.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
+		        // Prints each number until readLine returns a null (empty) line
+		        while ((line = webBuffer1.readLine()) != null) {
+		          nr1.analyseData(line);
+		        }
+		      } 
+		      catch (java.io.IOException e) {
+		        System.out.println(e);
+		      }
+		      nr1.analysisEnd(); // Print min, max, avarage, total
+		      System.out.println();
 	}
 
 }
