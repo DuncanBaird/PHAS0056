@@ -108,6 +108,7 @@ public class NumericalReader {
 	    bw.close();
 	}
 	
+	// prints results of analysis
 	void analysisEnd() {
 		System.out.println("The min value is " + this.minValue);
 		System.out.println("The max value is " + this.maxValue);
@@ -116,40 +117,40 @@ public class NumericalReader {
 	}
 	
 	public static void main(String[] args) {
+		
 		/*// TODO Auto-generated method stub
 		 NumericalReader numRead_1 = new NumericalReader();
 		 String dataFile = ("N:" + File.separator + "mywork"
 		 + File.separator + "numbers.txt");*/
 		 
-		// Creates objects holding variables
-		 NumericalReader nr1 = new NumericalReader(); 
-		 NumericalReader nr2 = new NumericalReader();
-		 String line = "";
-		 String saveDir = "";
-		 
-		    try {
-		        saveDir = NumericalReader.getStringFromKeyboard();
-		      } 
-		    catch (java.io.IOException e) {
-		        System.out.println(e);
-		      }
-		      try {
-		        nr1.fileLoc = (saveDir + File.separator + "numbers1.txt");
-		        System.out.println("Saving to " + nr1.fileLoc);
-		        nr1.analysisStart(nr1.fileLoc);
+		// Creates objects for holding variables
+		NumericalReader nr1 = new NumericalReader(); 
+		NumericalReader nr2 = new NumericalReader();
+		String line = "";
+		String saveDir = "";
+		try {
+			saveDir = NumericalReader.getStringFromKeyboard();
+			} 
+		catch (java.io.IOException e) {
+			System.out.println(e);
+		}
+		try {
+			nr1.fileLoc = (saveDir + File.separator + "numbers1.txt");
+			System.out.println("Saving to " + nr1.fileLoc);
+			nr1.analysisStart(nr1.fileLoc);
 
-		        // Creates BufferedReader object from a web page
-		        BufferedReader webBuffer1 = nr1.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
-		        // Prints each number until readLine returns a null (empty) line
-		        while ((line = webBuffer1.readLine()) != null) {
-		          nr1.analyseData(line);
-		        }
-		      } 
-		      catch (java.io.IOException e) {
-		        System.out.println(e);
-		      }
-		      nr1.analysisEnd(); // Print min, max, avarage, total
-		      System.out.println();
+			// Creates BufferedReader object from a web page
+			BufferedReader webBuffer1 = nr1.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
+			// Prints each number until readLine returns a null (empty) line
+			while ((line = webBuffer1.readLine()) != null) {
+			nr1.analyseData(line);
+			}
+		} 
+		catch (java.io.IOException e) {
+			System.out.println(e);
+		}
+		nr1.analysisEnd(); // Print min, max, avarage, total
+		System.out.println();
 	}
 
 }
