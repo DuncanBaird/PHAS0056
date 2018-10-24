@@ -146,7 +146,7 @@ public class NumericalReader {
 		catch (java.io.IOException e) {
 			System.out.println(e);
 		}
-		nr1.analysisEnd(); // Print min, max, avarage, total
+		nr1.analysisEnd(); // Print min, max, average, total
 		System.out.println();
 		try {
 			saveDir = NumericalReader.getStringFromKeyboard();
@@ -169,7 +169,7 @@ public class NumericalReader {
 		catch (java.io.IOException e) {
 			System.out.println(e);
 		}
-		nr1.analysisEnd(); // Print min, max, avarage, total
+		nr1.analysisEnd(); // Print min, max, average, total
 		System.out.println();
 	}
 }
