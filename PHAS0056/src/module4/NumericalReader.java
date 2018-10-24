@@ -57,17 +57,18 @@ public class NumericalReader {
 		// new BufferedWriter object for writing file to file.Loc
 	    BufferedWriter bw = new BufferedWriter(
 	    		new FileWriter(this.fileLoc, true));
+	    PrintWriter pw = new PrintWriter(bw);
 	    // checks next token
 	    while (s.hasNext()) {
 	    	
-		// if token is type integer
+		// if token is type double
 	    if (s.hasNextDouble()) { 
 	        Double number = s.nextDouble();
 	        System.out.println(number);
 	        String numberAsString = Double.toString(number);
 	        // writes string representation of token
-	        bw.write(numberAsString);
-	        bw.newLine();
+	        pw.println(numberAsString);
+	        /*bw.newLine();*/
 	        // update variables
 	        this.nValues++;
 	        this.sumOfValues += number;
@@ -85,8 +86,8 @@ public class NumericalReader {
 	    	int number = s.nextInt();
 	        System.out.println(number);
 	        // writes string representation of token
-	        bw.write(number);
-	        bw.newLine();
+	        pw.println(number);
+	        /*bw.newLine();*/
 	        // update variables
 	        this.nValues++;
 	        this.sumOfValues += number;
@@ -105,7 +106,7 @@ public class NumericalReader {
 	    }
 	    // close resources
 	    s.close();
-	    bw.close();
+	    pw.close();
 	}
 	
 	// prints results of analysis
@@ -148,12 +149,6 @@ public class NumericalReader {
 		}
 		nr1.analysisEnd(); // Print min, max, average, total
 		System.out.println();
-		try {
-			saveDir = NumericalReader.getStringFromKeyboard();
-			} 
-		catch (java.io.IOException e) {
-			System.out.println(e);
-		}
 		try {
 			nr2.fileLoc = (saveDir + File.separator + "numbers2.txt");
 			System.out.println("Saving to " + nr2.fileLoc);
