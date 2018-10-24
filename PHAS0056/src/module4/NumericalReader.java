@@ -118,10 +118,7 @@ public class NumericalReader {
 	
 	public static void main(String[] args) {
 		
-		/*// TODO Auto-generated method stub
-		 NumericalReader numRead_1 = new NumericalReader();
-		 String dataFile = ("N:" + File.separator + "mywork"
-		 + File.separator + "numbers.txt");*/
+		// Uses above methods to analyse data from URLs
 		 
 		// Creates objects for holding variables
 		NumericalReader nr1 = new NumericalReader(); 
@@ -151,6 +148,28 @@ public class NumericalReader {
 		}
 		nr1.analysisEnd(); // Print min, max, avarage, total
 		System.out.println();
-	}
+		try {
+			saveDir = NumericalReader.getStringFromKeyboard();
+			} 
+		catch (java.io.IOException e) {
+			System.out.println(e);
+		}
+		try {
+			nr2.fileLoc = (saveDir + File.separator + "numbers2.txt");
+			System.out.println("Saving to " + nr2.fileLoc);
+			nr2.analysisStart(nr2.fileLoc);
 
+			// Creates BufferedReader object from a web page
+			BufferedReader webBuffer2 = nr2.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data2.txt");
+			// Prints each number until readLine returns a null (empty) line
+			while ((line = webBuffer2.readLine()) != null) {
+			nr2.analyseData(line);
+			}
+		} 
+		catch (java.io.IOException e) {
+			System.out.println(e);
+		}
+		nr1.analysisEnd(); // Print min, max, avarage, total
+		System.out.println();
+	}
 }
