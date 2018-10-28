@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class WordCounter {
 
+	// reads URL and returns data as BufferedReader object
 	public static BufferedReader brFromURL(String urlName) 
 			throws IOException {
-		// reads URL and returns data as BufferedReader object
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -16,16 +16,16 @@ public class WordCounter {
 		return br;
 	}
 	
+	// reads file and returns data as BufferedReader object
 	public static BufferedReader brFromFile(String fileName)
 			throws FileNotFoundException {
-		// reads file and returns data as BufferedReader object
 		FileReader fr = new FileReader(fileName);
 		BufferedReader br = new BufferedReader(fr);
 		return br;
 	}
 	
+	// returns the number of words in the input data
 	public static int countWordsInResource(BufferedReader dataAsBR) {
-		// returns the number of words in the input data
 		Scanner s = new Scanner(dataAsBR);
 		int wordCount = 0;
 		while (s.hasNext()) {
