@@ -19,7 +19,7 @@ public class NumericalReader {
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		String s = br.readLine();
-		// confirm to user what directory the inputed
+		// confirm to user what directory they inputed
 		System.out.println("You typed: " + s);
 		if (s.length() != 0) {
 		      return s;
@@ -68,7 +68,6 @@ public class NumericalReader {
 	        String numberAsString = Double.toString(number);
 	        // writes string representation of token
 	        pw.println(numberAsString);
-	        /*bw.newLine();*/
 	        // update variables
 	        this.nValues++;
 	        this.sumOfValues += number;
@@ -87,7 +86,6 @@ public class NumericalReader {
 	        System.out.println(number);
 	        // writes string representation of token
 	        pw.println(number);
-	        /*bw.newLine();*/
 	        // update variables
 	        this.nValues++;
 	        this.sumOfValues += number;
@@ -99,7 +97,7 @@ public class NumericalReader {
 	          this.maxValue = number;
 	        }
 	      } 
-	    // Goes to new line for non-numbers
+	    // Goes to new line for non-number tokens
 	    else { 
 	    	s.nextLine();
 	      }
@@ -126,12 +124,15 @@ public class NumericalReader {
 		NumericalReader nr2 = new NumericalReader();
 		String line = "";
 		String saveDir = "";
+		
+		// get directory to saving files
 		try {
 			saveDir = NumericalReader.getStringFromKeyboard();
 			} 
 		catch (java.io.IOException e) {
 			System.out.println(e);
 		}
+		// run analysis on first file
 		try {
 			nr1.fileLoc = (saveDir + File.separator + "numbers1.txt");
 			System.out.println("Saving to " + nr1.fileLoc);
@@ -149,6 +150,8 @@ public class NumericalReader {
 		}
 		nr1.analysisEnd(); // Print min, max, average, total
 		System.out.println();
+		
+		// run analysis on second file
 		try {
 			nr2.fileLoc = (saveDir + File.separator + "numbers2.txt");
 			System.out.println("Saving to " + nr2.fileLoc);
