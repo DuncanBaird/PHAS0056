@@ -46,8 +46,8 @@ public class NumericalReader {
 	    FileWriter fw = new FileWriter(outputfile);
 	    fw.close();
 	    // initialise variables
-	    minValue = 0;
-		maxValue = 0;
+	    minValue = 1000;
+		maxValue = -1000;
 		nValues = 0;
 		sumOfValues = 0;
 	}
@@ -114,7 +114,7 @@ public class NumericalReader {
 		System.out.println("The min value is " + this.minValue);
 		System.out.println("The max value is " + this.maxValue);
 		System.out.println("The mean value is " + this.sumOfValues/nValues);
-		System.out.println("The total number of values read is " + this.sumOfValues );
+		System.out.println("The total number of values read is " + this.nValues );
 	}
 	
 	public static void main(String[] args) {
@@ -164,7 +164,7 @@ public class NumericalReader {
 		catch (java.io.IOException e) {
 			System.out.println(e);
 		}
-		nr1.analysisEnd(); // Print min, max, average, total
+		nr2.analysisEnd(); // Print min, max, average, total
 		System.out.println();
 	}
 }
