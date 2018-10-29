@@ -7,12 +7,16 @@ public class SquareMatrix {
 	private double[][] elements;
 	private int size;
 	
-	public SquareMatrix(double[][] elements) {
+	public SquareMatrix() {
+		
+	}
+	
+	public SquareMatrix(double[][] elements) throws Exception {
 		int m = elements.length;
 		int n = elements[0].length;
 		for (int i=0; i<m; i++) {
 			if(elements[i].length != n) {
-				throw new IllegalArgumentException();
+				throw new Exception("m must equal n for a square matrix");
 			}
 			else {
 				this.elements = elements;
@@ -23,11 +27,14 @@ public class SquareMatrix {
 	public String toString() {
 		String matrix = "";
 		for (int i=0;i<this.size;i++) {
+			matrix += " | ";
 			for(int j=0; j<this.size;j++) {
+				matrix += elements[i][j] + " | ";
 				
 			}
+			matrix += "\n";
 		}
 		
-		return "m is" +this.m+"n is" +this.n;
+		return matrix;
 	}
 }
