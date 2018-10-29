@@ -13,6 +13,13 @@ public class TestSquareMatrix {
 			System.out.println(e);
 		}
 		System.out.println(A);
+		
+		try {
+			System.out.println(SquareMatrix.unitMatrix(5));
+		}
+		catch(Exception e) {
+			
+		}
 	}
 
 }

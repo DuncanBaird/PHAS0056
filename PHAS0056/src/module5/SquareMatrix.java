@@ -37,4 +37,15 @@ public class SquareMatrix {
 		
 		return matrix;
 	}
+	
+	public static SquareMatrix unitMatrix(int size) throws Exception {
+		double[][]values = new double[size][size];
+		for(int i=0;i<size;i++) {
+			for(int j=0;j<size;j++) {
+				values[i][i] = 1;
+			}
+		}
+		return new SquareMatrix(values);
+	}
+	
 }
