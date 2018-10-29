@@ -20,6 +20,13 @@ public class TestSquareMatrix {
 		catch(Exception e) {
 			
 		}
+		
+		try{
+			System.out.println(A.equals(SquareMatrix.unitMatrix(3)));
+		}
+		catch(Exception e) {
+			
+		}
 	}
 
 }
