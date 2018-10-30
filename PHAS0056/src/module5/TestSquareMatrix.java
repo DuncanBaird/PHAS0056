@@ -54,7 +54,7 @@ public class TestSquareMatrix {
 			System.out.println(e);
 		}
 		
-		// calculating AxB and BxA
+		//calculating AxB and BxA
 		
 		try {
 			System.out.println("Matrix A multiplied by matrix B is\n" + A.multiply(B));
@@ -69,51 +69,26 @@ public class TestSquareMatrix {
 			System.out.println(e);
 		}
 		
+		//calculating commutator; [A,B], defined as (AB - BA
 		
-		/*
-		// Testing
-		SquareMatrix A = new SquareMatrix();
-		double[][] A_values = {{2,1,0},{0,1,0},{-1,0,2}};
 		try {
-			A = new SquareMatrix(A_values);
+			System.out.println("The commutator of A and B is\n" 
+		+ SquareMatrix.subtract(A.multiply(B),B.multiply(A)));
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		//calculating CxD
+		
+		try{
+			SquareMatrix CD = C.multiply(D);
+			SquareMatrix I = SquareMatrix.unitMatrix(2);
+			System.out.println("Is matrix CD equal to matrix I?\n" + CD.equals(I));
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
-		System.out.println(A);
-		
-		try {
-			System.out.println(SquareMatrix.unitMatrix(3));
-		}
-		catch(Exception e) {
-			
-		}
-		
-		try{
-			System.out.println(A.equals(SquareMatrix.unitMatrix(3)));
-		}
-		catch(Exception e) {
-			
-		}
-		try {
-			System.out.println(SquareMatrix.add(A,SquareMatrix.unitMatrix(3)));
-		}
-		catch(Exception e){
-			
-		}
-		try {
-			System.out.println(SquareMatrix.multiply(A, SquareMatrix.unitMatrix(3)));
-		}
-		catch(Exception e) {
-			
-		}
-		try {
-			System.out.println(A.multiply(SquareMatrix.unitMatrix(3)));
-		}
-		catch(Exception e){
-			
-		}
-		*/
 	}
 
 }
