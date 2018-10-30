@@ -49,9 +49,7 @@ public class SquareMatrix {
 		return new SquareMatrix(values);
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	//find hashcode of matrix
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,9 +59,7 @@ public class SquareMatrix {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
+	//returns true if two matrices are equal
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,6 +76,68 @@ public class SquareMatrix {
 		return true;
 	}
 	
+	//// static matrix operations
 	
+	//return addition of 2 square matrices
+	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if (sm1.size != sm2.size) {
+			throw new Exception("Square matrices are not the same size");
+		}
+		double[][] result = new double[sm1.elements.length][sm2.elements.length];
+		
+		for(int i=0;i<sm1.size;i++) {
+			for(int j=0;j<sm1.size;j++) {
+				result[i][j] = sm1.elements[i][j] + sm2.elements[i][j];
+				
+			}
+			
+		}
+		return new SquareMatrix(result);	
+	}
 	
+	//return difference of 2 square matrices
+	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if (sm1.size != sm2.size) {
+			throw new Exception("Square matrices are not the same size");
+		}
+		double[][] result = new double[sm1.elements.length][sm2.elements.length];
+		
+		for(int i=0;i<sm1.size;i++) {
+			for(int j=0;j<sm1.size;j++) {
+				result[i][j] = sm1.elements[i][j] - sm2.elements[i][j];
+			}
+		}
+		return new SquareMatrix(result);
+	}
+	
+	//return product of 2 square matrices
+	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if (sm1.size != sm2.size) {
+			throw new Exception("Square matrices are not the same size");
+		}
+		double[][] result = new double[sm1.elements.length][sm2.elements.length];
+		
+		for(int i=0;i<sm1.size;i++) {
+			for(int j=0;j<sm1.size;j++) {
+				for(int k=0; k< sm1.size;k++)
+				result[i][j] += sm1.elements[i][k] * sm2.elements[k][j];
+			}
+		}
+		return new SquareMatrix(result);
+	}
+	
+	//// non static versions of above matrix operations
+	
+	//non static addition
+	public SquareMatrix add(SquareMatrix sm) throws Exception {
+		return add(this,sm);
+	}
+	//non static subtraction
+	public SquareMatrix subtract(SquareMatrix sm) throws Exception{
+		return subtract(this,sm);
+	}
+	//non static multiplication
+	public SquareMatrix multiply(SquareMatrix sm) throws Exception{
+		return multiply(this,sm);
+	}
 }
