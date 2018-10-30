@@ -54,7 +54,20 @@ public class TestSquareMatrix {
 			System.out.println(e);
 		}
 		
+		// calculating AxB and BxA
 		
+		try {
+			System.out.println("Matrix A multiplied by matrix B is\n" + A.multiply(B));
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		try {
+			System.out.println("Matrix B multiplied by matrix A is\n" + B.multiply(A));
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
 		
 		
 		/*
