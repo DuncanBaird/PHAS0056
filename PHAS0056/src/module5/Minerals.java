@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Map.Entry;
 
 public class Minerals {
 
@@ -73,7 +76,7 @@ public class Minerals {
 	}
 
 	// hash maps
-	public static HashMap<Integer, String> massHashMap(String urlName) throws IOException {
+	public static HashMap<Integer, String> nameHashMap(String urlName) throws IOException {
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -90,7 +93,7 @@ public class Minerals {
 
 	}
 
-	public static HashMap<Integer, Double> nameHashMap(String urlName) throws IOException {
+	public static HashMap<Integer, Double> massHashMap(String urlName) throws IOException {
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -105,6 +108,45 @@ public class Minerals {
 		}
 		return hashmap;
 
+	}
+	
+	public static void main(String[] args) {
+		//create hash map objects
+		HashMap<Integer, String> nameLoc = new HashMap<Integer, String>();
+		HashMap<Integer, Double> mass = new HashMap<Integer, Double>();
+		
+		try {
+			nameLoc = nameHashMap("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-locations.txt");
+			mass = massHashMap("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-samples.txt");
+			
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		
+		// find largest and smallest mass
+		double maxMass = Collections.max(mass.values());
+		double minMass = Collections.min(mass.values());
+		
+		// find code
+		int maxUUID = 0;
+		int minUUID = 0;
+		for(Entry<Integer,Double> entry : mass.entrySet()) {
+			if(entry.getValue() == maxMass) {
+				maxUUID = entry.getKey();
+			}
+			else if(entry.getValue() == minMass) {
+				minUUID = entry.getKey();
+			}
+		}
+		
+		//printing results
+		System.out.println("The maximum mass has;"
+				+ " UUID: " + maxUUID + "; Mass: " + maxMass + "g; "
+						+ "at location: " + nameLoc.get(maxUUID));
+		System.out.println("The maximum mass has;"
+				+ " UUID: " + minUUID + "; Mass: " + minMass + "g; "
+						+ "at location: " + nameLoc.get(minUUID));
 	}
 
 }
