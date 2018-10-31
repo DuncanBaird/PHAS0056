@@ -39,6 +39,12 @@ public class DataPoint {
 		return this.ey;
 	}
 	
+	//toString for DataPoint object
+	public String toString() {
+		return "DataPoint is: x = " + x + ", y = " + y + ", ey = " + ey;
+	}
+	
+	
 	//Parser for input string
 	public static DataPoint parseLine(String line) {
 		Scanner s = new Scanner(line);
