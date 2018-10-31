@@ -1,5 +1,7 @@
 package module5;
 
+import java.util.Scanner;
+
 public class DataPoint {
 	
 	//sets member variables for data measurements
@@ -35,5 +37,22 @@ public class DataPoint {
 	
 	public double getey() {
 		return this.ey;
+	}
+	
+	//Parser for input string
+	public static DataPoint parseLine(String line) {
+		Scanner s = new Scanner(line);
+		double x = 0.0d;
+		double y = 0.0d;
+		double ey = 0.0d;
+		//iterate over input tokens
+		while(s.hasNext()) {
+			//update values
+			x = s.nextDouble();
+			y = s.nextDouble();
+			ey = s.nextDouble();
+		}
+		s.close();
+		return new DataPoint(x,y,ey);
 	}
 }
