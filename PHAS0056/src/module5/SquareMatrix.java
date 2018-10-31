@@ -15,15 +15,21 @@ public class SquareMatrix {
 	public SquareMatrix(double[][] elements) throws Exception {
 		int m = elements.length;
 		int n = elements[0].length;
-		for (int i=0; i<m; i++) {
-			if(elements[i].length != n) {
-				throw new Exception("m must equal n for a square matrix");
-			}
-			else {
-				this.elements = elements;
-				this.size = elements.length;
+		if(elements.length != 0) {
+			for (int i=0; i<m; i++) {
+				if(elements[i].length != n) {
+					throw new Exception("m must equal n for a square matrix");
+				}
+				else {
+					this.elements = elements;
+					this.size = elements.length;
+				}
 			}
 		}
+		else if(elements.length == 0) {
+			throw new Exception("Square Matrix cannot have a zero size");
+		}
+		
 	}
 	public String toString() {
 		String matrix = "";
