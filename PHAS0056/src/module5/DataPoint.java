@@ -41,7 +41,7 @@ public class DataPoint {
 	
 	//toString for DataPoint object
 	public String toString() {
-		return "DataPoint is: x = " + x + ", y = " + y + ", ey = " + ey;
+		return "x = " + x + ", y = " + y + ", ey = " + ey + "\n";
 	}
 	
 	
