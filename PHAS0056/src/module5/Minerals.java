@@ -141,10 +141,10 @@ public class Minerals {
 		}
 		
 		//printing results
-		System.out.println("The maximum mass has;"
+		System.out.println("The maximum mass sample has;"
 				+ " UUID: " + maxUUID + "; Mass: " + maxMass + "g; "
 						+ "at location: " + nameLoc.get(maxUUID));
-		System.out.println("The maximum mass has;"
+		System.out.println("The minimum mass sample has;"
 				+ " UUID: " + minUUID + "; Mass: " + minMass + "g; "
 						+ "at location: " + nameLoc.get(minUUID));
 	}
