@@ -75,7 +75,8 @@ public class Minerals {
 		return mineral;
 	}
 
-	// hash maps
+	//// hash maps
+
 	public static HashMap<Integer, String> nameHashMap(String urlName) throws IOException {
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
@@ -109,44 +110,41 @@ public class Minerals {
 		return hashmap;
 
 	}
-	
+
 	public static void main(String[] args) {
-		//create hash map objects
+		// create hash map objects
 		HashMap<Integer, String> nameLoc = new HashMap<Integer, String>();
 		HashMap<Integer, Double> mass = new HashMap<Integer, Double>();
 		
+		// import data from URL
 		try {
 			nameLoc = nameHashMap("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-locations.txt");
 			mass = massHashMap("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-samples.txt");
-			
-		}
-		catch(Exception e){
+
+		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		// find largest and smallest mass
 		double maxMass = Collections.max(mass.values());
 		double minMass = Collections.min(mass.values());
-		
-		// find code
+
+		// find UUID
 		int maxUUID = 0;
 		int minUUID = 0;
-		for(Entry<Integer,Double> entry : mass.entrySet()) {
-			if(entry.getValue() == maxMass) {
+		for (Entry<Integer, Double> entry : mass.entrySet()) {
+			if (entry.getValue() == maxMass) {
 				maxUUID = entry.getKey();
-			}
-			else if(entry.getValue() == minMass) {
+			} else if (entry.getValue() == minMass) {
 				minUUID = entry.getKey();
 			}
 		}
-		
-		//printing results
-		System.out.println("The maximum mass sample has;"
-				+ " UUID: " + maxUUID + "; Mass: " + maxMass + "g; "
-						+ "at location: " + nameLoc.get(maxUUID));
-		System.out.println("The minimum mass sample has;"
-				+ " UUID: " + minUUID + "; Mass: " + minMass + "g; "
-						+ "at location: " + nameLoc.get(minUUID));
+
+		// printing results
+		System.out.println("The maximum mass sample has;" + " UUID: " + maxUUID + "; Mass: " + maxMass + "g; "
+				+ "at location: " + nameLoc.get(maxUUID));
+		System.out.println("The minimum mass sample has;" + " UUID: " + minUUID + "; Mass: " + minMass + "g; "
+				+ "at location: " + nameLoc.get(minUUID));
 	}
 
 }
