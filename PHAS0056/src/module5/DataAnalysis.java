@@ -45,13 +45,13 @@ public class DataAnalysis {
 	}
 
 	public static void main(String[] args) {
-		// testing
+		// Attempting analysis for n=2 and n=4
 
 		ArrayList<DataPoint> data = new ArrayList<DataPoint>();
 
+		// try to import data from URL
 		try {
 			data = dataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-xy.txt");
-			// System.out.println("The data is\n" + data.toString());
 		} catch (Exception e) {
 			System.out.println(e);
 		}
