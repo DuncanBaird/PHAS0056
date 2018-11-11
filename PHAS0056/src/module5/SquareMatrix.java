@@ -80,7 +80,7 @@ public class SquareMatrix {
 		return true;
 	}
 	
-	//// static matrix operations
+	//// static matrix operations 
 	
 	//return addition of 2 square matrices
 	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {

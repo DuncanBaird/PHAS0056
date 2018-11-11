@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DataPoint {
 	
-	//sets member variables for data measurements
+	//sets member variables for data measurements 
 	private double x;
 	private double y;
 	private double ey;

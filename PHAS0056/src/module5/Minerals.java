@@ -102,7 +102,7 @@ public class Minerals {
 		String line = "";
 		HashMap<Integer, Double> hashmap = new HashMap<Integer, Double>();
 
-		// adds tokens from URL to hash map
+		// adds tokens from URL to hash map 
 		while ((line = br.readLine()) != null) {
 			Minerals mineral = parseLine(line);
 			hashmap.put(mineral.getUUID(), mineral.getMass());

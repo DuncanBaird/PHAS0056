@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 public class DataAnalysis {
 
-	// create array list from URL inputed data
+	// create array list from URL inputed data 
 	public static ArrayList<DataPoint> dataFromURL(String urlName) throws IOException {
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();

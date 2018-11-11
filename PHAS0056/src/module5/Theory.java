@@ -4,7 +4,7 @@ public class Theory {
 
 	private int n;
 	
-	//set n
+	//set n 
 	public Theory(int n) {
 		this.n = n;
 	}
