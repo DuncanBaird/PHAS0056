@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Players {
@@ -165,12 +166,24 @@ public class Players {
 
 	// get data from URL
 	// reads URL and returns data as BufferedReader object
-	public BufferedReader brFromURL(String urlName) throws IOException {
+
+	// create array list from URL inputed data
+	public static ArrayList<Players> dataFromURL(String urlName) throws IOException {
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
-		return br;
+		String line = "";
+
+		// create array list
+		ArrayList<Players> array1 = new ArrayList<Players>();
+
+		// adds tokens from URL to array list
+		while ((line = br.readLine()) != null) {
+			Players player = Players.parseLine(line);
+			array1.add(player);
+		}
+		return array1;
 	}
 
 	// parser
