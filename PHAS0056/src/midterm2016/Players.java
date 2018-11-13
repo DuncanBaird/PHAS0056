@@ -160,7 +160,8 @@ public class Players {
 		return "Players [playerName=" + playerName + ", team=" + team + ", playerPosition=" + playerPosition
 				+ ", numberGames=" + numberGames + ", atBats=" + atBats + ", totalRuns=" + totalRuns + ", hits=" + hits
 				+ ", doubles=" + doubles + ", triples=" + triples + ", homeRuns=" + homeRuns + ", runsBattedIn="
-				+ runsBattedIn + ", battingAverage=" + battingAverage + ", onBasePercentage=" + onBasePercentage + "]";
+				+ runsBattedIn + ", battingAverage=" + battingAverage + ", onBasePercentage=" + onBasePercentage
+				+ "]\n";
 	}
 
 
@@ -178,6 +179,10 @@ public class Players {
 		// create array list
 		ArrayList<Players> array1 = new ArrayList<Players>();
 
+		for (int i = 0; i < 2; i++) {
+			br.readLine();
+		}
+
 		// adds tokens from URL to array list
 		while ((line = br.readLine()) != null) {
 			Players player = Players.parseLine(line);
@@ -194,9 +199,33 @@ public class Players {
 
 		while (s.hasNext()) {
 			p.playerName = s.next();
+			p.team = s.next();
+			p.playerPosition = s.next();
+			if (s.hasNextInt()) {
+				p.numberGames = s.nextInt();
+				p.atBats = s.nextInt();
+				p.totalRuns = s.nextInt();
+				p.hits = s.nextInt();
+				p.doubles = s.nextInt();
+				p.triples = s.nextInt();
+				p.homeRuns = s.nextInt();
+				p.runsBattedIn = s.nextInt();
+				p.battingAverage = s.nextDouble();
+				p.onBasePercentage = s.nextDouble();
+			}
 		}
 		s.close();
 		return p;
+	}
+
+	public static double slugPC(Players p) {
+		double SLG_t = (p.hits) + (2 * p.doubles) + (3 * p.triples) + (4 * p.homeRuns);
+		double SLG_b = p.atBats;
+		return SLG_t / SLG_b;
+	}
+
+	public static double slugTime(Players p) {
+		return slugPC(p) + p.onBasePercentage;
 	}
 
 }
