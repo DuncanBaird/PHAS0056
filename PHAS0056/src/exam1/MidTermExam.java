@@ -80,8 +80,8 @@ public class MidTermExam {
 			
 			HashMap<String, ArrayList<Player>> largestLiability = new HashMap<String, ArrayList<Player>>();
 			double maxLiability = 0.0d;
-			for (String team : teams.keySet()) {
-				for (Player player : teams.get(team)) {
+			for (String team : teams.keySet()) { // loops over teams
+				for (Player player : teams.get(team)) { // loops over players
 					ArrayList<Player> currentPlayers = largestLiability.get(team);
 					if (currentPlayers == null) {
 						largestLiability.put(team, new ArrayList<Player>());
@@ -100,7 +100,9 @@ public class MidTermExam {
 			// calculating player with max butter fingers per team
 			HashMap<String, ArrayList<Player>> largestButter = new HashMap<String, ArrayList<Player>>();
 			double maxButter = 0.0d;
+			// loops over teams that have a player with at least 10 touches
 			for (String team : tenPlusTouches.keySet()) {
+				// loops over players with at least 10 touches
 				for (Player player : tenPlusTouches.get(team)) {
 					ArrayList<Player> currentPlayers = largestButter.get(team);
 					if (currentPlayers == null) {
@@ -124,7 +126,5 @@ public class MidTermExam {
 			// if there is an exception
 			System.out.println(e);
 		}
-
 	}
-
 }
