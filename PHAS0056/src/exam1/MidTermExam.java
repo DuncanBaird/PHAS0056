@@ -112,7 +112,27 @@ public class MidTermExam {
 			}
 			
 			// butter fingers
+			HashMap<String, ArrayList<Player>> largestButter = new HashMap<String, ArrayList<Player>>();
 
+			double maxButter = 0.0d;
+			for (String team : tenPlusTouches.keySet()) {
+				for (Player player : tenPlusTouches.get(team)) {
+					ArrayList<Player> currentPlayers = largestButter.get(team);
+					// System.out.println(player.getPlayerName());
+					if (currentPlayers == null) {
+						largestButter.put(team, new ArrayList<Player>());
+					}
+
+					if (maxButter < Player.butterFingers(player)) {
+						maxButter = Player.butterFingers(player);
+						largestButter.get(team).add(player);
+						// System.out.println(maxLiability);
+					}
+				}
+
+				System.out.println(
+						"The player with the highest liability for " + team + " is: " + largestButter.get(team));
+			}
 
 		} catch (Exception e) {
 			System.out.println(e);
