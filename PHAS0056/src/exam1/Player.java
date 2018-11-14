@@ -151,10 +151,11 @@ public class Player {
 	 */
 	@Override
 	public String toString() {
-		return "Player [playerName=" + playerName + ", team=" + team + ", playerPosition=" + playerPosition
-				+ ", numberGames=" + numberGames + ", rushAttempts=" + rushAttempts + ", rushYards=" + rushYards
-				+ ", rushTouchDowns=" + rushTouchDowns + ", target=" + target + ", receptions=" + receptions
-				+ ", receivingYards=" + receivingYards + ", receivingTouchDowns=" + receivingTouchDowns + ", fumbles="
+		return " [Player Name=" + playerName + ", Team=" + team + ", Position=" + playerPosition + ", Number of games="
+				+ numberGames + ", Rushing attempts=" + rushAttempts + ", Rushing yards=" + rushYards
+				+ ", Rushing touch downs=" + rushTouchDowns + ", Receiving targets=" + target + ", Receptions="
+				+ receptions + ", Receiving yards=" + receivingYards + ", Receiving touch downs=" + receivingTouchDowns
+				+ ", Fumbles="
 				+ fumbles + "]";
 	}
 
