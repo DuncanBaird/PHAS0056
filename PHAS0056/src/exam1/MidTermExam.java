@@ -76,6 +76,11 @@ public class MidTermExam {
 				}
 			}
 			
+			for (String team : tenPlusTouches.keySet()) {
+				System.out.println("The number of players with more than ten touches for " + team + " is: "
+						+ tenPlusTouches.get(team).size());
+			}
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
