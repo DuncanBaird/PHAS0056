@@ -76,7 +76,7 @@ public class MidTermExam {
 						+ tenPlusTouches.get(team).size());
 			}
 
-			// greatest liability
+			// calculating player with greatest liability per team
 			
 			HashMap<String, ArrayList<Player>> largestLiability = new HashMap<String, ArrayList<Player>>();
 			double maxLiability = 0.0d;
@@ -94,10 +94,10 @@ public class MidTermExam {
 						}
 					}
 				System.out.println("The player with the highest liability for " + team + " is: "
-						+ largestLiability.get(team));
+						+ largestLiability.get(team).get(0));
 			}
 			
-			// butter fingers
+			// calculating player with max butter fingers per team
 			HashMap<String, ArrayList<Player>> largestButter = new HashMap<String, ArrayList<Player>>();
 			double maxButter = 0.0d;
 			for (String team : tenPlusTouches.keySet()) {
@@ -114,7 +114,8 @@ public class MidTermExam {
 					}
 				}
 				System.out.println(
-						"The player with the highest butter finger for " + team + " is: " + largestButter.get(team));
+						"The player with the highest butter finger for " + team + " is: "
+								+ largestButter.get(team).get(0));
 			}
 
 		} catch (Exception e) {
