@@ -217,10 +217,16 @@ public class Player {
 		return p.rushAttempts + p.target;
 	}
 
+	// calculates All Purpose Yards of a player
+	// All Purpose = Rushing + Receiving
+	public static int allPurpose(Player p) {
+		return p.rushYards + p.receivingYards;
+	}
+
 	// calculates the liability of a player
 	// liability = (Rushing Yards + Receiving Yards)/(Attempts + Receiving Target)
 	public static double liability(Player p) {
-		double lia_t = p.rushYards + p.receivingYards;
+		double lia_t = allPurpose(p);
 		double lia_b = p.rushAttempts + p.target;
 		return lia_t/lia_b;
 	}
