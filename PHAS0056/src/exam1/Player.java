@@ -198,7 +198,8 @@ public class Player {
 		// create array list
 		ArrayList<Player> array1 = new ArrayList<Player>();
 
-		for (int i = 0; i < 2; i++) {
+		// skip 3 header lines
+		for (int i = 0; i < 3; i++) {
 			br.readLine();
 		}
 
