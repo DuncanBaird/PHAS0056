@@ -86,25 +86,32 @@ public class MidTermExam {
 			}
 			
 			// greatest liability
+			
+			HashMap<String, ArrayList<Player>> largestLiability = new HashMap<String, ArrayList<Player>>();
 
 			double liability = 0.0d;
 			double maxLiability = 0.0d;
 			int playerMaxLiabilityUUID = 0;
 			for (String team : teams.keySet()) {
 				for (Player player : teams.get(team)) {
+					ArrayList<Player> currentPlayers = largestLiability.get(team);
 					// System.out.println(player.getPlayerName());
-					for (int i = 0; i < teams.get(team).size(); i++) {
-						if (maxLiability < Player.liability(player)) {
+					if (currentPlayers == null) {
+						largestLiability.put(team, new ArrayList<Player>());
+					}
+
+					if (maxLiability < Player.liability(player)) {
 							maxLiability = Player.liability(player);
-							playerMaxLiabilityUUID = i;
+							largestLiability.get(team).add(player);
 							// System.out.println(maxLiability);
 						}
 					}
-				}
+
 				System.out.println("The player with the highest liability for " + team + " is: "
-						+ players.get(playerMaxLiabilityUUID));
+						+ largestLiability.get(team));
 			}
 			
+			// butter fingers
 
 
 		} catch (Exception e) {
