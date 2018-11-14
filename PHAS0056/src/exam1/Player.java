@@ -210,4 +210,27 @@ public class Player {
 		return array1;
 	}
 
+	// calculates touches of a player
+	// Touches=Rushing Attempts + Times as receiving target
+	public static int touches(Player p) {
+		return p.rushAttempts + p.target;
+	}
+
+	// calculates the liability of a player
+	// liability = (Rushing Yards + Receiving Yards)/(Attempts + Receiving Target)
+	public static double liability(Player p) {
+		double lia_t = p.rushYards + p.receivingYards;
+		double lia_b = p.rushAttempts + p.target;
+		return lia_t/lia_b;
+	}
+	
+	// calculates the Butter Fingers of a player
+	// butter fingers= ((Receiving target - Receptions)+ fumbles)/(Receiving
+	// target+Attempts)
+	public static double butterFingers(Player p) {
+		double but_t = (p.target - p.receptions) - p.fumbles;
+		double but_b = p.target + p.rushAttempts;
+		return but_t / but_b;
+	}
+
 }
