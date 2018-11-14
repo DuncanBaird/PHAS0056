@@ -88,10 +88,7 @@ public class MidTermExam {
 			// greatest liability
 			
 			HashMap<String, ArrayList<Player>> largestLiability = new HashMap<String, ArrayList<Player>>();
-
-			double liability = 0.0d;
 			double maxLiability = 0.0d;
-			int playerMaxLiabilityUUID = 0;
 			for (String team : teams.keySet()) {
 				for (Player player : teams.get(team)) {
 					ArrayList<Player> currentPlayers = largestLiability.get(team);
@@ -99,21 +96,18 @@ public class MidTermExam {
 					if (currentPlayers == null) {
 						largestLiability.put(team, new ArrayList<Player>());
 					}
-
+					largestLiability.get(team).add(player);
 					if (maxLiability < Player.liability(player)) {
 							maxLiability = Player.liability(player);
-							largestLiability.get(team).add(player);
-							// System.out.println(maxLiability);
+						largestLiability.get(team).set(0, player);
 						}
 					}
-
 				System.out.println("The player with the highest liability for " + team + " is: "
 						+ largestLiability.get(team));
 			}
 			
 			// butter fingers
 			HashMap<String, ArrayList<Player>> largestButter = new HashMap<String, ArrayList<Player>>();
-
 			double maxButter = 0.0d;
 			for (String team : tenPlusTouches.keySet()) {
 				for (Player player : tenPlusTouches.get(team)) {
@@ -122,16 +116,14 @@ public class MidTermExam {
 					if (currentPlayers == null) {
 						largestButter.put(team, new ArrayList<Player>());
 					}
-
+					largestButter.get(team).add(player);
 					if (maxButter < Player.butterFingers(player)) {
 						maxButter = Player.butterFingers(player);
-						largestButter.get(team).add(player);
-						// System.out.println(maxLiability);
+						largestButter.get(team).set(0, player);
 					}
 				}
-
 				System.out.println(
-						"The player with the highest liability for " + team + " is: " + largestButter.get(team));
+						"The player with the highest butter finger for " + team + " is: " + largestButter.get(team));
 			}
 
 		} catch (Exception e) {
