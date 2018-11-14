@@ -1,14 +1,15 @@
 package exam1;
 
-
-public class MidTermExam {
+public class midtermtesting {
 
 	public static void main(String[] args) {
-		//// Analysis of NFL player data
+		// TODO Auto-generated method stub
 		try {
 			Analysis.analysis("http://www.hep.ucl.ac.uk/undergrad/3459/exam-data/NFL2012OffensiveStats.txt");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+
 	}
+
 }
