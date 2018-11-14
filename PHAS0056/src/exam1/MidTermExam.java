@@ -10,6 +10,12 @@ public class MidTermExam {
 		// create ArrayList collection for storying player data
 		ArrayList<Player> players = new ArrayList<Player>();
 
+		try {
+			players = Player.dataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/exam-data/NFL2012OffensiveStats.txt");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 	}
 
 }
