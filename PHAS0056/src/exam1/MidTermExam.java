@@ -79,7 +79,33 @@ public class MidTermExam {
 			for (String team : tenPlusTouches.keySet()) {
 				System.out.println("The number of players with more than ten touches for " + team + " is: "
 						+ tenPlusTouches.get(team).size());
+				/*
+				 * System.out.println("The player with the highest liability for " + team +
+				 * " is: " + players.get(playerMaxLiabilityUUID));
+				 */
 			}
+			
+			// greatest liability
+
+			double liability = 0.0d;
+			double maxLiability = 0.0d;
+			int playerMaxLiabilityUUID = 0;
+			for (String team : teams.keySet()) {
+				for (Player player : teams.get(team)) {
+					// System.out.println(player.getPlayerName());
+					for (int i = 0; i < teams.get(team).size(); i++) {
+						if (maxLiability < Player.liability(player)) {
+							maxLiability = Player.liability(player);
+							playerMaxLiabilityUUID = i;
+							// System.out.println(maxLiability);
+						}
+					}
+				}
+				System.out.println("The player with the highest liability for " + team + " is: "
+						+ players.get(playerMaxLiabilityUUID));
+			}
+			
+
 
 		} catch (Exception e) {
 			System.out.println(e);
