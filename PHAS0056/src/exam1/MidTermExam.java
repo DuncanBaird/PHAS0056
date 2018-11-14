@@ -50,8 +50,27 @@ public class MidTermExam {
 
 
 			System.out.println(players.get(2));
-			System.out.println("The total number of players recorded" + "in the file is: " + players.size());
+			System.out.println("The total number of players recorded in the file is: " + players.size());
+			
+			System.out.println("The player with the maximum number of rushing yards "
+					+ "is:" + players.get(playerMaxRushingYardsUUID));
 
+			System.out.println("The player with the maximum number of all purpose yards " + "is:"
+					+ players.get(playerMaxAllPurposeYardsUUID));
+			
+			//// For each team section
+
+			// Players with more than 10 touches
+			HashMap<String, ArrayList<Player>> tenPlusTouches = new HashMap<String, ArrayList<Player>>();
+			
+			// finds players with >10 AB
+			for (String team : teams.keySet()) {
+				for (Player player : teams.get(team)) {
+					ArrayList<Player> currentPlayers = new ArrayList<Player>();
+
+				}
+			}
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
