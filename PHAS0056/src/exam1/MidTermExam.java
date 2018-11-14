@@ -66,8 +66,13 @@ public class MidTermExam {
 			// finds players with >10 AB
 			for (String team : teams.keySet()) {
 				for (Player player : teams.get(team)) {
-					ArrayList<Player> currentPlayers = new ArrayList<Player>();
-
+					ArrayList<Player> currentPlayers = tenPlusTouches.get(team);
+					if(currentPlayers == null) {
+						tenPlusTouches.put(team, new ArrayList<Player>());
+					}
+					if (Player.touches(player) >= 10) {
+						tenPlusTouches.get(team).add(player);
+					}
 				}
 			}
 			
