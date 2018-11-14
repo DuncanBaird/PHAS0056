@@ -151,7 +151,7 @@ public class Player {
 	 */
 	@Override
 	public String toString() {
-		return " [Player Name=" + playerName + ", Team=" + team + ", Position=" + playerPosition + ", Number of games="
+		return "[Player Name=" + playerName + ", Team=" + team + ", Position=" + playerPosition + ", Number of games="
 				+ numberGames + ", Rushing attempts=" + rushAttempts + ", Rushing yards=" + rushYards
 				+ ", Rushing touch downs=" + rushTouchDowns + ", Receiving targets=" + target + ", Receptions="
 				+ receptions + ", Receiving yards=" + receivingYards + ", Receiving touch downs=" + receivingTouchDowns
