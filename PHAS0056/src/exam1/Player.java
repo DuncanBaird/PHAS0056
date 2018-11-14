@@ -190,16 +190,18 @@ public class Player {
 		} else {
 			return lia_t / lia_b;
 		}
-
 	}
 	
 	// calculates the Butter Fingers of a player
 	// butter fingers= ((Receiving target - Receptions)+ fumbles)/(Receiving
 	// target+Attempts)
-	public static double butterFingers(Player p) {
+	public static double butterFingers(Player p) throws Exception {
 		double but_t = (p.target - p.receptions) - p.fumbles;
 		double but_b = p.target + p.rushAttempts;
-		return but_t / but_b;
+		if (but_b == 0) {
+			throw new Exception("Cannot divide by 0");
+		} else {
+			return but_t / but_b;
+		}
 	}
-
 }
