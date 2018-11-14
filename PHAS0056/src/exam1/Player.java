@@ -182,10 +182,15 @@ public class Player {
 
 	// calculates the liability of a player
 	// liability = (Rushing Yards + Receiving Yards)/(Attempts + Receiving Target)
-	public static double liability(Player p) {
+	public static double liability(Player p) throws Exception {
 		double lia_t = allPurpose(p);
 		double lia_b = p.rushAttempts + p.target;
-		return lia_t/lia_b;
+		if (lia_b == 0) {
+			throw new Exception("Cannot divide by 0");
+		} else {
+			return lia_t / lia_b;
+		}
+
 	}
 	
 	// calculates the Butter Fingers of a player
