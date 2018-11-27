@@ -1,6 +1,6 @@
 package module6;
 
-public class QuadraticTheory {
+public class QuadraticTheory implements Theory {
 
 	private double a;
 	private double b;
