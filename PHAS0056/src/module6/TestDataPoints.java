@@ -23,7 +23,7 @@ public class TestDataPoints {
 
 		// adds tokens from URL to array list
 		while ((line = br.readLine()) != null) {
-			DataPoint dp = DataPoint.parseLine(line);
+			DataPoint dp = LabelledDataPoint.parseLine(line);
 			array1.add(dp);
 		}
 		return array1;
@@ -31,7 +31,15 @@ public class TestDataPoints {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		try {
+			ArrayList<DataPoint> a = dataFromURL(
+					"http://www.hep.ucl.ac.uk/undergrad/3459/data/module6/module6-data.txt");
+			for (DataPoint data : a) {
+				System.out.println(data);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }
