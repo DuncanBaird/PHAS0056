@@ -4,8 +4,12 @@ public class LabelledDataPoint extends DataPoint {
 
 	String labelDataPoint;
 
-	public LabelledDataPoint() {
-		// TODO Auto-generated constructor stub
+	// sets values
+	public LabelledDataPoint(double x, double y, double ey, String label) {
+		this.x = x;
+		this.y = y;
+		this.ey = ey;
+		this.labelDataPoint = label;
 	}
 
 }
