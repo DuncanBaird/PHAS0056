@@ -10,4 +10,14 @@ public class LabelledDataPoint extends DataPoint {
 		this.labelDataPoint = label;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "LabelledDataPoint [labelDataPoint=" + labelDataPoint + ", toString()=" + super.toString() + "]";
+	}
+
 }
