@@ -30,7 +30,7 @@ public class TestDataPoints {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Try pull data from url and print
 		try {
 			ArrayList<DataPoint> a = dataFromURL(
 					"http://www.hep.ucl.ac.uk/undergrad/3459/data/module6/module6-data.txt");
