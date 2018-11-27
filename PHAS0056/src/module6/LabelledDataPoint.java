@@ -6,9 +6,7 @@ public class LabelledDataPoint extends DataPoint {
 
 	// sets values
 	public LabelledDataPoint(double x, double y, double ey, String label) {
-		this.x = x;
-		this.y = y;
-		this.ey = ey;
+		super(x, y, ey);
 		this.labelDataPoint = label;
 	}
 
