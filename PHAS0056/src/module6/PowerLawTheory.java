@@ -12,6 +12,7 @@ public class PowerLawTheory implements Theory {
 		return Math.pow(x, n);
 	}
 
+	// to string for printing power theory object
 	@Override
 	public String toString() {
 		return "x^" + n;
