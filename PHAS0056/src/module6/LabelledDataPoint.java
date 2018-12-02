@@ -12,14 +12,10 @@ public class LabelledDataPoint extends DataPoint {
 		this.labelDataPoint = label;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
+	// to String for labelled data point
 	@Override
 	public String toString() {
-		return "LabelledDataPoint [labelDataPoint=" + labelDataPoint + ", toString()=" + super.toString() + "]";
+		return "[Label of data point = " + labelDataPoint + ", toString()=" + super.toString() + "]";
 	}
 
 	// Parser for input string
@@ -41,6 +37,7 @@ public class LabelledDataPoint extends DataPoint {
 		}
 		s.close();
 
+		// update either with or without label
 		if (label != "") {
 			return new LabelledDataPoint(x, y, ey, label);
 		} else {
