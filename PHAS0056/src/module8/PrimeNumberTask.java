@@ -9,6 +9,27 @@ public class PrimeNumberTask implements Runnable {
 	private static int largestN;
 	private static int largestPrime;
 
+	/**
+	 * @return the primeList
+	 */
+	public static Collection<Integer> getPrimeList() {
+		return primeList;
+	}
+
+	/**
+	 * @return the largestN
+	 */
+	public static int getLargestN() {
+		return largestN;
+	}
+
+	/**
+	 * @param largestN the largestN to set
+	 */
+	public static void setLargestN(int largestN) {
+		PrimeNumberTask.largestN = largestN;
+	}
+
 	// test if input is prime
 	public static boolean isPrime(int n) {
 		if (n < 2) {
@@ -26,11 +47,10 @@ public class PrimeNumberTask implements Runnable {
 	public void run() {
 		primeList.clear();
 		for (int i = 2; i < Integer.MAX_VALUE; i++) {
-			largestN = i;
+			setLargestN(i);
 			if (isPrime(i) == true) {
 				primeList.add(i);
 			}
 		}
-
 	}
 }
