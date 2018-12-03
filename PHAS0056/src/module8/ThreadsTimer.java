@@ -45,6 +45,7 @@ public class ThreadsTimer {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		System.out.println("The single thread value is more accurate but slower.");
 	}
 
 }
