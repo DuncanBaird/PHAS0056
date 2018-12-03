@@ -6,7 +6,7 @@ public class ThreadsMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Thread countdown = new Thread(new CountdownTask(5));
+		Thread countdown = new Thread(new CountdownTask(3));
 		countdown.start();
 
 		Thread prime = new Thread(new PrimeNumberTask());
@@ -15,12 +15,15 @@ public class ThreadsMain {
 		try {
 			countdown.join();
 			prime.interrupt();
-			System.out.println("LArgest integer checked is: " + PrimeNumberTask.getLargestN());
-			System.out.println("The largest prime found is: " + Collections.max(PrimeNumberTask.getPrimeList()));
-			System.out.println("The total prime numbers is: " + PrimeNumberTask.getPrimeList().size());
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		System.out.println("Largest integer checked is: " + PrimeNumberTask.getLargestN());
+
+		System.out.println("The largest prime found is: " + Collections.max(PrimeNumberTask.getPrimeList()));
+		System.out.println("The total prime numbers is: " + PrimeNumberTask.getPrimeList().size());
+
 	}
 
 }
