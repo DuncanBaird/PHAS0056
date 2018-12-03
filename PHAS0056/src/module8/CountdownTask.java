@@ -9,8 +9,8 @@ public class CountdownTask implements Runnable {
 	}
 
 	public void run() {
-		for (int i = time; i > 0; i--) {
-			System.out.println("Seceonds left is: " + time);
+		for (int i = this.time; i > -1; i--) {
+			System.out.println("Seconds left is: " + i);
 		}
 	}
 }
