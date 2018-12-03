@@ -24,6 +24,13 @@ public class PrimeNumberTask implements Runnable {
 	}
 
 	public void run() {
+		primeList.clear();
+		for (int i = 2; i < Integer.MAX_VALUE; i++) {
+			largestN = i;
+			if (isPrime(i) == true) {
+				primeList.add(i);
+			}
+		}
 
 	}
 }
