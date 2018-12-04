@@ -4,11 +4,12 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 
 /**
+ * Class for running a Monte Carlo simulation for determining a value of Pi.
  * 
  * @author Ben Waugh
  * @author Simon Jolly
  * @author Duncan Baird
- *
+ * @version 1.0
  */
 public class MonteCarloPiCalculatorTask implements Callable<Double> {
 
