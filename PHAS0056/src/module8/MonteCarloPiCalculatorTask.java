@@ -3,13 +3,33 @@ package module8;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
+/**
+ * 
+ * @author Ben Waugh
+ * @author Simon Jolly
+ * @author Duncan Baird
+ *
+ */
 public class MonteCarloPiCalculatorTask implements Callable<Double> {
+
+	/**
+	 * Member variable for number of Monte Carlo samples to compute
+	 */
 	private final long n_points;
 
+	/**
+	 * Constructor for building MonteCarloPiCalculatorTask. With a specified number
+	 * of computation samples.
+	 * 
+	 * @param nPoints
+	 */
 	public MonteCarloPiCalculatorTask(long nPoints) {
 		this.n_points = nPoints;
 	}
 
+	/**
+	 * call method for computing Monte Carlo algorithm
+	 */
 	@Override
 	public Double call() {
 		Random rand = new Random();
