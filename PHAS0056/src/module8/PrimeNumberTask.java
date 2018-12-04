@@ -65,9 +65,10 @@ public class PrimeNumberTask implements Runnable {
 	}
 
 	/**
-	 * Runs thread for finding prime numbers from 2 to max integer value, if it
-	 * finds a prime it adds to the collection of primes. Also checks for
-	 * interruption of thread to stop chekcing if thread is interrupted.
+	 * Runs thread for finding prime numbers from 2 to max integer value.
+	 * <p>
+	 * If it finds a prime it adds to the collection of primes. Also checks for
+	 * interruption of thread to stop checking if thread is interrupted.
 	 */
 	public void run() {
 		primeList.clear();
