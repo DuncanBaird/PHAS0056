@@ -3,11 +3,26 @@ package module8;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * A class for checking what integers in the natural set are prime based on
+ * their divisibility.
+ * 
+ * @author Duncan Baird
+ * @version 1.0
+ *
+ */
+
 public class PrimeNumberTask implements Runnable {
 
+	/**
+	 * Collection to store integers that have been found to be prime. Order does not
+	 * matter.
+	 */
 	private static Collection<Integer> primeList = new ArrayList<Integer>();
+	/**
+	 * Integer to represent largest integer check loop reaches.
+	 */
 	private static int largestN;
-	private static int largestPrime;
 
 	/**
 	 * @return the primeList
@@ -24,13 +39,18 @@ public class PrimeNumberTask implements Runnable {
 	}
 
 	/**
-	 * @param largestN the largestN to set
+	 * @param sets largestN value from input
 	 */
 	public static void setLargestN(int largestN) {
 		PrimeNumberTask.largestN = largestN;
 	}
 
-	// test if input is prime
+	/**
+	 * Checks to see if input is prime or not.
+	 * 
+	 * @param value of integer to be checked
+	 * @return true or false; if prime
+	 */
 	public static boolean isPrime(int n) {
 		if (n < 2) {
 			return false;
@@ -44,6 +64,11 @@ public class PrimeNumberTask implements Runnable {
 		return true;
 	}
 
+	/**
+	 * Runs thread for finding prime numbers from 2 to max integer value, if it
+	 * finds a prime it adds to the collection of primes. Also checks for
+	 * interruption of thread to stop chekcing if thread is interrupted.
+	 */
 	public void run() {
 		primeList.clear();
 		for (int i = 2; i < Integer.MAX_VALUE; i++) {
