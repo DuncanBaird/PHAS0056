@@ -85,7 +85,11 @@ public class ThreadsTimer {
 		}
 
 		System.out.println(
-				"The single thread value is more accurate but slower.\nAnd the time taken is not 4 times faster. ");
+				"\nThe single thread value is more accurate but slower."
+						+ "\nAnd the time taken is not 4 times faster for the multi-threaded method."
+						+ "\nTrialling for 4 times as many points for the multi-threaded method does not"
+						+ "\nproduce as accurate a result as the signle threaded method"
+						+ "\nfor a normal number of points.");
 	}
 
 }
