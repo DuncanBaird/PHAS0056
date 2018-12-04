@@ -36,8 +36,8 @@ public class ThreadsTimer {
 	/**
 	 * Method for calculating Pi and measuring time taken for multi-threads.
 	 * <p>
-	 * Takes a long as input for nummber for Monte Carlo simulations to run and an
-	 * integer for the humber of threads to use. Times how long for all threads to
+	 * Takes a long as input for number for Monte Carlo simulations to run and an
+	 * integer for the number of threads to use. Times how long for all threads to
 	 * complete.
 	 * 
 	 * @param nPoints
