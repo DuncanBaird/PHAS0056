@@ -6,8 +6,25 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * Main class for implementing MonteCarloPiCalculatorTask for finding Pi in
+ * single and multi-threaded methods.
+ * 
+ * @author Ben Waugh
+ * @author Simon Jolly
+ * @author Duncan Baird
+ * @version 1.0
+ *
+ */
 public class ThreadsTimer {
 
+	/**
+	 * Method for calculating Pi and measuring time taken for a single thread.
+	 * <p>
+	 * Takes a long as input for number of Monte Carlo simulations to run.
+	 * 
+	 * @param points
+	 */
 	public static void singlePi(long points) {
 		double t1 = System.currentTimeMillis();
 		MonteCarloPiCalculatorTask task = new MonteCarloPiCalculatorTask(points);
@@ -16,6 +33,17 @@ public class ThreadsTimer {
 		System.out.println("The time taken is: " + (System.currentTimeMillis() - t1) + "ms");
 	}
 
+	/**
+	 * Method for calculating Pi and measuring time taken for multi-threads.
+	 * <p>
+	 * Takes a long as input for nummber for Monte Carlo simulations to run and an
+	 * integer for the humber of threads to use. Times how long for all threads to
+	 * complete.
+	 * 
+	 * @param nPoints
+	 * @param nThreads
+	 * @throws Exception
+	 */
 	public static void multiPi(long nPoints, int nThreads) throws Exception {
 		double t2 = System.currentTimeMillis();
 		ExecutorService threadPool = Executors.newFixedThreadPool(nThreads);
@@ -36,6 +64,13 @@ public class ThreadsTimer {
 		System.out.println("The time taken is: " + (System.currentTimeMillis() - t2) + "ms");
 	}
 
+	/**
+	 * Main method for implementing singlePi and multiPi methods.
+	 * <p>
+	 * Also has print statement for outputting a conclusion to console.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Calling Pi calculators
 		try {
