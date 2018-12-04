@@ -13,7 +13,7 @@ import java.util.concurrent.Future;
  * @author Ben Waugh
  * @author Simon Jolly
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  *
  */
 public class ThreadsTimer {

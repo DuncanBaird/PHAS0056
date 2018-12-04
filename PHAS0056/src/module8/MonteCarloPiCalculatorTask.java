@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
  * @author Ben Waugh
  * @author Simon Jolly
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 public class MonteCarloPiCalculatorTask implements Callable<Double> {
 

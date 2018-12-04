@@ -8,7 +8,7 @@ import java.util.Collection;
  * their divisibility.
  * 
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  *
  */
 

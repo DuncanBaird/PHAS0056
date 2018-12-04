@@ -5,7 +5,7 @@ package module8;
  * console remaining time every second. Implements runnable for thread usage.
  * 
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 
 public class CountdownTask implements Runnable {
