@@ -3,7 +3,7 @@ package module9;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class SolarSystem {
@@ -11,8 +11,8 @@ public class SolarSystem {
 	public static void createAndDisplayGUI() {
 		JFrame frame = new JFrame("Swing Example");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JLabel label = new JLabel("Hello");
-		frame.add(label);
+		JPanel panel = new SimulationGUI();
+		frame.add(panel);
 		frame.setSize(600, 600);
 		frame.setVisible(true);
 
