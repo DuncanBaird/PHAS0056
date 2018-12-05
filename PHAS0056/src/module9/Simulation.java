@@ -20,14 +20,7 @@ public class Simulation extends JPanel implements ActionListener {
 	StellarObject Mercury = new StellarObject(2, 47400, 579E10); // create objects for each orbiting body
 	StellarObject Venus = new StellarObject(4, 35000, 1.082E11);
 	StellarObject Earth = new StellarObject(5, 29800, 1.496E11);
-	StellarObject Mars = new StellarObject(3, 24100, 2.279E11);
-	StellarObject Jupiter = new StellarObject(8, 13100, 7.786E11);
-	StellarObject Saturn = new StellarObject(7, 9700, 1.4335E12);
-	StellarObject Uranus = new StellarObject(6, 6800, 2.8725E12);
-	StellarObject Neptune = new StellarObject(6, 5400, 4.4951E12);
-	StellarObject Icarus = new StellarObject(2, 28710, 1.613E11); // Asteroid 1566 Icarus. A nicely appropriate name.
-	StellarObject Comet = new StellarObject(10, 10000, 5E11); // A comet which partially vaporises every time it reaches
-																// perihelion
+
 
 	/**
 	 * Create panel containing simulation
@@ -70,35 +63,7 @@ public class Simulation extends JPanel implements ActionListener {
 		g.setColor(Color.CYAN);
 		g.fillOval((int) (Earth.x / 2E10), (int) (Earth.y / 2E10), (int) Earth.radius, (int) Earth.radius);
 
-		g.setColor(Color.RED);
-		g.fillOval((int) (Mars.x / 2E10), (int) (Mars.y / 2E10), (int) Mars.radius, (int) Mars.radius);
 
-		g.setColor(Color.PINK);
-		g.fillOval((int) (Jupiter.x / 2E10), (int) (Jupiter.y / 2E10), (int) Jupiter.radius, (int) Jupiter.radius);
-
-		g.setColor(Color.ORANGE);
-		g.fillOval((int) (Saturn.x / 2E10), (int) (Saturn.y / 2E10), (int) Saturn.radius, (int) Saturn.radius);
-
-		g.setColor(Color.CYAN);
-		g.fillOval((int) (Uranus.x / 2E10), (int) (Uranus.y / 2E10), (int) Uranus.radius, (int) Uranus.radius);
-
-		g.setColor(Color.BLUE);
-		g.fillOval((int) (Neptune.x / 2E10), (int) (Neptune.y / 2E10), (int) Neptune.radius, (int) Neptune.radius);
-
-		g.setColor(Color.GREEN);
-		g.fillOval((int) (Icarus.x / 2E10), (int) (Icarus.y / 2E10), (int) Icarus.radius, (int) Icarus.radius);
-
-		if (Comet.radius > 0) { // Do this if comet has not been completely vaporised
-			g.drawString("The comet has not yet been completely vaporised. ", -250, -230);
-			g.setColor(Color.MAGENTA);
-			g.fillOval((int) (Comet.x / 2E10), (int) (Comet.y / 2E10), (int) Comet.radius, (int) Comet.radius);
-			if (day % 50 == 0 && Math.sqrt(Comet.x * Comet.x + Comet.y * Comet.y) < 2E11) {
-				Comet.radius--; // reduces comet size as it approaches sun
-			}
-		} else
-			g.drawString("The comet has fully vaporised. ", -250, -230);
-		g.drawString(("Time elapsed: " + day + " days"), -250, -250);
-		day++;
 	}
 
 	/**
