@@ -13,25 +13,10 @@ import java.util.concurrent.Future;
  * @author Ben Waugh
  * @author Simon Jolly
  * @author Duncan Baird
- * @version 1.1
+ * @version 1.1.1
  *
  */
 public class ThreadsTimer {
-
-	/**
-	 * Method for calculating Pi and measuring time taken for a single thread.
-	 * <p>
-	 * Takes a long as input for number of Monte Carlo simulations to run.
-	 * 
-	 * @param points
-	 */
-	public static void singlePi(long points) {
-		double t1 = System.currentTimeMillis();
-		MonteCarloPiCalculatorTask task = new MonteCarloPiCalculatorTask(points);
-		double pi = task.call();
-		System.out.println("The single thread value of pi is: " + pi);
-		System.out.println("The time taken is: " + (System.currentTimeMillis() - t1) + "ms");
-	}
 
 	/**
 	 * Method for calculating Pi and measuring time taken for multi-threads.
@@ -60,7 +45,7 @@ public class ThreadsTimer {
 		}
 		threadPool.shutdown();
 		double pi = sum / nThreads;
-		System.out.println("The four thread value of pi is: " + pi);
+		System.out.println("The " + nThreads + " thread value of pi is: " + pi);
 		System.out.println("The time taken is: " + (System.currentTimeMillis() - t2) + "ms");
 	}
 
@@ -74,7 +59,7 @@ public class ThreadsTimer {
 	public static void main(String[] args) {
 		// Calling Pi calculators
 		try {
-			singlePi(10000000L);
+			multiPi(10000000L, 1);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -85,10 +70,10 @@ public class ThreadsTimer {
 		}
 
 		System.out.println(
-				"\nThe single thread value is more accurate but slower."
+				"\nThe single thread value is more accurate."
 						+ "\nAnd the time taken is not 4 times faster for the multi-threaded method."
 						+ "\nTrialling for 4 times as many points for the multi-threaded method does not"
-						+ "\nproduce as accurate a result as the signle threaded method"
+						+ "\nproduce as accurate a result as the single threaded method"
 						+ "\nfor a normal number of points.");
 	}
 
