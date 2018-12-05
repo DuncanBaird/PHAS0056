@@ -75,15 +75,7 @@ public class Simulation extends JPanel implements ActionListener {
 		Mercury.simulate(delta);
 		Venus.simulate(delta);
 		Earth.simulate(delta);
-		Mars.simulate(delta);
-		Jupiter.simulate(delta);
-		Saturn.simulate(delta);
-		Uranus.simulate(delta);
-		Neptune.simulate(delta);
-		Icarus.simulate(delta);
-		if (Comet.radius > 0) {
-			Comet.simulate(delta);
-		}
+
 
 		repaint();
 	}

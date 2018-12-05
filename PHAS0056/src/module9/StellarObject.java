@@ -27,8 +27,12 @@ public class StellarObject {
 		this.y = position;
 	}
 
+	public static double magnitude(double x, double y) {
+		return Math.sqrt((Math.pow(x, 2) + Math.pow(y, 2)));
+	}
+
 	public void simulate(int time) {
-		double a = gravitation * massSun / (Math.pow(x, 2) + Math.pow(y, 2));
+		double a = gravitation * massSun / Math.pow(magnitude(x, y), 3);
 
 		azimuth = Math.atan(x / y);
 
