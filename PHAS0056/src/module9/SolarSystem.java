@@ -1,5 +1,7 @@
 package module9;
 
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
@@ -11,13 +13,14 @@ public class SolarSystem {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JLabel label = new JLabel("Hello");
 		frame.add(label);
-		frame.pack();
+		frame.setSize(600, 600);
 		frame.setVisible(true);
+
 
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		System.out.println(Toolkit.getDefaultToolkit().getScreenSize());
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndDisplayGUI();
