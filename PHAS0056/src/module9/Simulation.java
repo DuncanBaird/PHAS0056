@@ -17,7 +17,7 @@ public class Simulation extends JPanel implements ActionListener {
 	int day = 0;
 
 	private Timer animationTimer; // timer controlling frame rate
-	StellarObject Mercury = new StellarObject(2, 47400, 579E10); // create objects for each orbiting body
+	StellarObject Mercury = new StellarObject(8, 47400, 579E10); // create objects for each orbiting body
 	StellarObject Venus = new StellarObject(4, 35000, 1.082E11);
 	StellarObject Earth = new StellarObject(5, 29800, 1.496E11);
 
