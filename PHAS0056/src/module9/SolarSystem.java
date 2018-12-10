@@ -1,6 +1,7 @@
 package module9;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,6 +17,10 @@ public class SolarSystem {
 		frame.setSize(600, 600);
 		frame.setVisible(true);
 
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
 
 	}
 
