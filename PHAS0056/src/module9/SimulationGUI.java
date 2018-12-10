@@ -1,5 +1,6 @@
 package module9;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,8 +39,8 @@ public class SimulationGUI extends JPanel implements ActionListener {
 		buttonPanel.add(stopButton);
 		buttonPanel.add(exitButton);
 
-		add(animPanel);
-		add(buttonPanel);
+		add(animPanel, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.LINE_END);
 
 	}
 
