@@ -16,6 +16,11 @@ public class Simulation extends JPanel implements ActionListener {
 
 	private Timer animationTimer; // timer controlling frame rate
 
+	private Position orbitCentre;
+	private int earthOrbitRadius;
+	private int earthOrbitPeriod;
+	private int earthSize = 5;
+
 
 	/**
 	 * Create panel containing simulation
@@ -26,7 +31,15 @@ public class Simulation extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(width,height));
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
+
+		/**
+		 * create objects for simulation
+		 */
+		Planetoid earth = new Planetoid("Earth", orbitCentre, earthOrbitRadius, earthOrbitPeriod, Color.CYAN,
+				earthSize);
+
 	}
+
 
 	/**
 	 * Paint Solar System objects
@@ -67,9 +80,9 @@ public class Simulation extends JPanel implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent event) {
 		// Update position, velocity and acceleration for all bodies
-		Mercury.simulate(delta);
-		Venus.simulate(delta);
-		Earth.simulate(delta);
+		// Mercury.simulate(delta);
+		// Venus.simulate(delta);
+		// Earth.simulate(delta);
 
 
 		repaint();
