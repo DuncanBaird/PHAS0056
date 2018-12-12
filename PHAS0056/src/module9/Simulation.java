@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -15,6 +16,9 @@ public class Simulation extends JPanel implements ActionListener {
 	private final int delay = 1; // delay between steps
 
 	private Timer animationTimer; // timer controlling frame rate
+
+	ArrayList<Planetoid> planets;
+	ArrayList<StellarObject> celestialBodies;
 
 	private Position orbitCentre;
 	private int earthOrbitRadius;
@@ -37,6 +41,13 @@ public class Simulation extends JPanel implements ActionListener {
 		 */
 		Planetoid earth = new Planetoid("Earth", orbitCentre, earthOrbitRadius, earthOrbitPeriod, Color.CYAN,
 				earthSize);
+
+		planets = new ArrayList<Planetoid>();
+		planets.add(earth);
+
+		celestialBodies = new ArrayList<StellarObject>();
+
+		celestialBodies.addAll(planets);
 
 	}
 
