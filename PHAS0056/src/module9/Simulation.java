@@ -78,15 +78,12 @@ public class Simulation extends JPanel implements ActionListener {
 		g.fillOval(orbitCentre.getX() - sunRadius, orbitCentre.getY() - sunRadius, 2 * sunRadius, 2 * sunRadius);
 
 		// Draw Planets
-		g.setColor(Color.LIGHT_GRAY);
-		g.fillOval((int) (Mercury.x / 2E10), (int) (Mercury.y / 2E10), (int) Mercury.radius, (int) Mercury.radius);
-
-		g.setColor(Color.WHITE);
-		g.fillOval((int) (Venus.x / 2E10), (int) (Venus.y / 2E10), (int) Venus.radius, (int) Venus.radius);
-
-		g.setColor(Color.CYAN);
-		g.fillOval((int) (Earth.x / 2E10), (int) (Earth.y / 2E10), (int) Earth.radius, (int) Earth.radius);
-
+		for (Planetoid planet : planets) {
+			g.setColor(Color.WHITE);
+			g.drawOval(orbitCentre.getX() - planet.getOrbitRadius(), orbitCentre.getY() - planet.getOrbitRadius(),
+					2 * planet.getOrbitRadius(), 2 * planet.getOrbitRadius());
+			g.setColor(planet.colour());
+		}
 
 	}
 
