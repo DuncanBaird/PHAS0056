@@ -12,14 +12,21 @@ public class Position {
 	 * @param x  x-coordinate
 	 * @param y  y-coordinate
 	 */
-	Position(int x, int y){
+	Position(int x, int y) {
 		this.x=x;
 		this.y=y;
 	}
 	/* Setter methods */
-	void setX(int x){this.x = x;}
+	void setX(int x) {
+		this.x = x;
+	}
 	void setY(int y){this.y = y;}
 	/* Getter methods */
-	int x(){return this.x;}
-	int y(){return this.y;}
+	int x() {
+		return this.x;
+	}
+
+	int y() {
+		return this.y;
+	}
 }
