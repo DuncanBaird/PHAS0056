@@ -24,6 +24,7 @@ public class Simulation extends JPanel implements ActionListener {
 	private int earthOrbitRadius;
 	private int earthOrbitPeriod;
 	private int earthSize = 5;
+	private int sunRadius; // radius of sun
 
 
 	/**
@@ -35,6 +36,10 @@ public class Simulation extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(width,height));
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
+
+		orbitCentre = new Position(590, 340);
+
+		sunRadius = 20;
 
 		/**
 		 * create objects for simulation
@@ -70,7 +75,7 @@ public class Simulation extends JPanel implements ActionListener {
 
 		// Draw Sun
 		g.setColor(Color.YELLOW);
-		g.fillOval(-5, -5, 10, 10);
+		g.fillOval(orbitCentre.getX() - sunRadius, orbitCentre.getY() - sunRadius, 2 * sunRadius, 2 * sunRadius);
 
 		// Draw Planets
 		g.setColor(Color.LIGHT_GRAY);
