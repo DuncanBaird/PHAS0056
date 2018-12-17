@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 public class SolarSystem {
 
 	private static void createAndDisplayGui() {
-		JFrame frame = new JFrame("The Wild Solar System");
+		JFrame frame = new JFrame("Simulation of our Solar System");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		SolarSystemGuiPanel panel = new SolarSystemGuiPanel(); 
