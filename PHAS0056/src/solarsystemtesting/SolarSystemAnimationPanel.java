@@ -60,7 +60,7 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
 		/* Initialise orbit centre */
-		orbitCentre = new Position(width / 2, height / 2);
+		orbitCentre = new Position(width / 2, (height / 2) - 90);
         /* Initialise sun radius */
 		sunRadius = 16;
         /* Initialise orbit radii */

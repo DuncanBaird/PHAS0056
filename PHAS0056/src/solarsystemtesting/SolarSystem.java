@@ -19,7 +19,7 @@ public class SolarSystem {
 		SolarSystemGuiPanel panel = new SolarSystemGuiPanel(); 
 
 		frame.add(panel);       // Add panel to frame
-		frame.pack();           // Set component sizes and layout
+		frame.pack(); // Set component sizes and layout
 		frame.setVisible(true); // Display the resulting frame
 	}
 	/** Respond to button clicks */

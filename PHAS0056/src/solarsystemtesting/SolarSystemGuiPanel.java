@@ -28,7 +28,7 @@ public class SolarSystemGuiPanel extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(1300, 800)); // GUI dimensions
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		title = new JLabel("Solar System"); // GUI title
-		solarPanel = new SolarSystemAnimationPanel(1000, 700); // Animation dimension
+		solarPanel = new SolarSystemAnimationPanel(1300, 800); // Animation dimension
 		startButton = new JButton("Start"); // Animation start 
 		stopButton  = new JButton("Stop"); // Animation stop
 		exitButton = new JButton("Exit"); // Animation exit
