@@ -19,7 +19,7 @@ import javax.swing.Timer;
 public class SolarSystemAnimationPanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	public static final int delay = 10; //ms
+	public static final int delay = 15; // ms
 	private Timer animationTimer; // timer controlling frame rate
 
 	private Position orbitCentre; // centre of orbit on panel
@@ -56,10 +56,11 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 	 */
 	public SolarSystemAnimationPanel(int width, int height) {
 		setPreferredSize(new Dimension(width,height));
+		System.out.print(width);
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
 		/* Initialise orbit centre */
-		orbitCentre = new Position(590, 340);
+		orbitCentre = new Position(width / 2, height / 2);
         /* Initialise sun radius */
 		sunRadius = 16;
         /* Initialise orbit radii */
@@ -143,7 +144,7 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 		}
 		/* Paint time elapsed in earth years */
 		g.setColor(Color.white);
-		g.drawString("Time elapsed", 1150, 185);
+		g.drawString("Time elapsed:", 1150, 185);
 		g.drawString(Integer.toString(earth.getOrbits())+" Earth Years", 1150, 200);
 		
 	}

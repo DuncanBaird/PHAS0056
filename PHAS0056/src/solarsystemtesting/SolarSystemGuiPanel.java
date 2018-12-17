@@ -25,10 +25,10 @@ public class SolarSystemGuiPanel extends JPanel implements ActionListener {
 	/** Create JPanel containing animation panel and buttons. */
 	public SolarSystemGuiPanel() {
 		super();
-		setPreferredSize(new Dimension(600, 400)); // GUI dimensions
+		setPreferredSize(new Dimension(1300, 800)); // GUI dimensions
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		title = new JLabel("Solar System"); // GUI title
-		solarPanel = new SolarSystemAnimationPanel(500, 300); // Animation dimension
+		solarPanel = new SolarSystemAnimationPanel(1000, 700); // Animation dimension
 		startButton = new JButton("Start"); // Animation start 
 		stopButton  = new JButton("Stop"); // Animation stop
 		exitButton = new JButton("Exit"); // Animation exit

@@ -14,6 +14,7 @@ public class SolarSystem {
 	private static void createAndDisplayGui() {
 		JFrame frame = new JFrame("Simulation of our Solar System");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		SolarSystemGuiPanel panel = new SolarSystemGuiPanel(); 
 
