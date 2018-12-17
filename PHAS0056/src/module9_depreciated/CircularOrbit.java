@@ -1,4 +1,4 @@
-package module9;
+package module9_depreciated;
 
 public abstract class CircularOrbit extends StellarObject {
 

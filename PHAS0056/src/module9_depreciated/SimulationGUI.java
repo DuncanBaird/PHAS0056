@@ -1,4 +1,4 @@
-package module9;
+package module9_depreciated;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

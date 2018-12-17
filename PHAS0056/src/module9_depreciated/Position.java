@@ -1,4 +1,4 @@
-package module9;
+package module9_depreciated;
 
 public class Position {
 	private int x;

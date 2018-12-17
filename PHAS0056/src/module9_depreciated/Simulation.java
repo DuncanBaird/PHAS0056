@@ -1,4 +1,4 @@
-package module9;
+package module9_depreciated;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,7 +13,7 @@ import javax.swing.Timer;
 public class Simulation extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private final int delay = 1; // delay between steps
+	private final int delay = 10; // delay between steps
 
 	private Timer animationTimer; // timer controlling frame rate
 
@@ -26,13 +26,15 @@ public class Simulation extends JPanel implements ActionListener {
 	private int earthSize = 5;
 	private int sunRadius; // radius of sun
 
+	private Planetoid earth;
+
 
 	/**
 	 * Create panel containing simulation
 	 * @param width of panel
 	 * @param height of panel
 	 */
-	Simulation(int width, int height) {
+	public Simulation(int width, int height) {
 		setPreferredSize(new Dimension(width,height));
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
@@ -63,15 +65,9 @@ public class Simulation extends JPanel implements ActionListener {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		int height = getHeight();
-		int width = getWidth();
-
 		// Fill in background
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(0, 0, width, height);
-
-		// Move origin to centre of panel
-		g.translate(width / 2, height / 2);
+		g.setColor(Color.black);
+		g.fillRect(0, 0, getWidth(), getHeight());
 
 		// Draw Sun
 		g.setColor(Color.YELLOW);
@@ -84,6 +80,9 @@ public class Simulation extends JPanel implements ActionListener {
 					2 * planet.getOrbitRadius(), 2 * planet.getOrbitRadius());
 			g.setColor(planet.colour());
 		}
+		g.setColor(Color.white);
+		g.drawString("Time elasped",1150,185);
+		g.drawString(Integer.toString(earth.getOrbits())+" Earth Years", 1150, 200);
 
 	}
 

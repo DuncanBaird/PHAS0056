@@ -1,4 +1,4 @@
-package module9;
+package module9_depreciated;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -14,7 +14,7 @@ public class SolarSystem {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel = new SimulationGUI();
 		frame.add(panel);
-		frame.setSize(600, 600);
+		frame.pack();
 		frame.setVisible(true);
 
 
