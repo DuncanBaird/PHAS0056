@@ -1,4 +1,4 @@
-package solarsystemtesting;
+package module9;
 
 /*
  * Class presents position of celestial object

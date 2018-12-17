@@ -1,4 +1,4 @@
-package solarsystemtesting;
+package module9;
 
 import javax.swing.JApplet;
 import javax.swing.SwingUtilities;

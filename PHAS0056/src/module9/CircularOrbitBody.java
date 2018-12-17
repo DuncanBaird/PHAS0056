@@ -1,4 +1,4 @@
-package solarsystemtesting;
+package module9;
 
 /*
  * Class represents a celestial body with near circular orbit 
