@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Application for creating GUI panel for simulation
+ * Class for creating GUI panel for simulation
  * @author Duncan Baird
  * @version 1.0
  */

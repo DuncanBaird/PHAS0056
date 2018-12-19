@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
- * Application for running a simulation of our solar System
+ * Class for running a simulation of our solar System
  * @author Duncan Baird
  * @version 1.0
  */
