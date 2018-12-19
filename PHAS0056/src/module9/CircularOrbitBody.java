@@ -1,14 +1,23 @@
 package module9;
 
-/*
- * Class represents a celestial body with near circular orbit 
- * i.e. planets, asteroids
+/**
+ * Abstract class for creating celestial objects with circular orbits
+ *
+ * @author Duncan Baird
+ * @version 1.0
  */
-public abstract class CircularOrbitBody extends CelestialBody {	
-	protected int orbitRadius; // orbit radius of object
-	protected double angularSpeed; // angular speed of object
-	protected double orbitAngle = 0; // starting orbit angle
-	protected double delta; // angle increments
-	protected double delay = 50; // Delay in ms between steps
-	
+public abstract class CircularOrbitBody extends CelestialBody {
+	/**
+	* Member variables for objects with circular orbits
+	*/
+	protected int orbitRadius;
+	// angular speed or orbit not rotation
+	protected double angularSpeed;
+	// initialisation value
+	protected double orbitAngle = 0;
+	// simulation increment of orbit
+	protected double delta;
+	// increment time, ms
+	protected double delay = 50;
+
 }
