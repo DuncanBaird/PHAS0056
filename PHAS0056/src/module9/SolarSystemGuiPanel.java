@@ -1,5 +1,6 @@
 package module9;
 
+// import statements
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -9,55 +10,81 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-/*
- * JPanel with animation panel, title, and buttons
+
+/**
+ * Application for creating GUI panel for simulation
+ * @author Duncan Baird
+ * @version 1.0
  */
 public class SolarSystemGuiPanel extends JPanel implements ActionListener {
 	/**
-	 * 
+	 * Member variables for creating GUI panel
 	 */
 	private static final long serialVersionUID = 1L;
 	private static SolarSystemAnimationPanel solarPanel;
+
+	/**
+	* Member variables for objects such as buttons for adding to GUI
+	*/
 	private JButton startButton;
 	private JButton stopButton;
 	private JButton exitButton;
 	private JLabel title;
-	/** Create JPanel containing animation panel and buttons. */
+	/**
+	* Constructor for GUI Panel containing simulation panel and buttons
+	*/
 	public SolarSystemGuiPanel() {
+		// inherits from superclass
 		super();
-		setPreferredSize(new Dimension(1300, 800)); // GUI dimensions
+		// GUI dimension
+		setPreferredSize(new Dimension(1300, 800));
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-		title = new JLabel("Solar System"); // GUI title
-		solarPanel = new SolarSystemAnimationPanel(1300, 800); // Animation dimension
-		startButton = new JButton("Start"); // Animation start 
-		stopButton  = new JButton("Stop"); // Animation stop
-		exitButton = new JButton("Exit"); // Animation exit
-		/* Action when buttons pressed */
+		// GUI presentation name
+		title = new JLabel("Solar System");
+		// Animation dimensions
+		solarPanel = new SolarSystemAnimationPanel(1300, 800);
+		// stop, start and exit buttons
+		startButton = new JButton("Start");
+		stopButton  = new JButton("Stop");
+		exitButton = new JButton("Exit");
+		/**
+		* Actions performed when buttons are depressed
+		*/
 		startButton.addActionListener(this);
 		stopButton.addActionListener(this);
 		exitButton.addActionListener(this);
 		JPanel buttonPanel = new JPanel();
-		/* Add buttons to button panel */
+		/**
+		* Add buttons to panel
+		*/
 		buttonPanel.setLayout(new BoxLayout(
 				buttonPanel,BoxLayout.X_AXIS));
 		buttonPanel.add(startButton);
 		buttonPanel.add(stopButton);
 		buttonPanel.add(exitButton);
-		/* Add components to main panel */
+		/**
+		* Add remaining components to panel
+		*/
 		add(title, BorderLayout.PAGE_START);
 		add(solarPanel, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.LINE_END);
 	}
 
-	/** Respond to button clicks */
+	/**
+	* Method for responding to buttons
+	*/
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==startButton) start();
 		else if (e.getSource()==stopButton) stop();
 		else if (e.getSource()==exitButton) System.exit(0);
 	}
-	/** Start animation when applet is started */
+	/**
+	* Starts simulation when started
+	*/
 	public void start() {solarPanel.start();}
-	/** Stop animation when applet is stopped */
+	/**
+	Stops animation when stopped
+	*/
 	public void stop() {solarPanel.stop();}
 
 }
