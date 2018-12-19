@@ -4,7 +4,7 @@ package module9;
 import java.awt.Color;
 
 /**
- * Abstract class for creating celestial objects with circular orbits
+ * Class for creating celestial objects with circular orbits
  *
  * @author Duncan Baird
  * @version 1.0
