@@ -1,5 +1,6 @@
 package module9;
 
+// import statements
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,46 +13,69 @@ import javax.swing.Timer;
 
 /*
  * JPanel containing an animation of the solar system containing:
- * - planets: Mercury, Venus, Earth, Mars, Jupiter; 
+ * - planets: Mercury, Venus, Earth, Mars, Jupiter;
  * - asteroids
  * - comets
  */
+ /**
+  * Class for creating panel for solar system simulation
+	* <p>
+	* Containing;planets: Mercury, Venus, Earth, Mars, Jupiter;
+  * asteroids; comets: Duncan's comet
+  *
+  * @author Duncan Baird
+  * @version 1.0
+  */
 public class SolarSystemAnimationPanel extends JPanel implements ActionListener {
 
+	/**
+	 * Member variables for creating simulation panel
+	 */
 	private static final long serialVersionUID = 1L;
-	public static final int delay = 15; // ms
-	private Timer animationTimer; // timer controlling frame rate
+	public static final int delay = 15;
+	// timer from frame rate control
+	private Timer animationTimer;
 
-	private Position orbitCentre; // centre of orbit on panel
+	private Position orbitCentre;
 
-	private int sunRadius; // radius of sun
-	
-	/* Orbit radius of bodies with circular orbits */
+	private int sunRadius;
+
+	/**
+	* Orbital radii of circular orbit objects
+	*/
 	private int earthOrbitRadius;
 	private int mercuryOrbitRadius;
 	private int venusOrbitRadius;
-	private int marsOrbitRadius; 
+	private int marsOrbitRadius;
 	private int jupiterOrbitRadius;
-    private int asteroidOrbitRadius; 
+  private int asteroidOrbitRadius;
 
-    /* Orbit period of bodies with circular orbits */
+  /**
+	* Orbital period of circular orbit objects
+	*/
 	private double earthOrbitPeriod;
 	private double mercuryOrbitPeriod;
 	private double venusOrbitPeriod;
 	private double marsOrbitPeriod;
 	private double jupiterOrbitPeriod;
 	private double asteroidOrbitPeriod;
-	
+
+	/**
+	* Planet object for earth
+	*/
 	private Planet earth;
-	
+
+	/**
+	* ArrayList for containing objects in solar system
+	*/
 	ArrayList<Planet> planets;
 	ArrayList<Asteroid> asteroids;
 	ArrayList<Comet> comets;
 	ArrayList<CelestialBody> celestialBodies;
 
 	/**
-	 * Construct animation panel with specified width and height
-	 * @param width 
+	 * Construct an animation panel with specified dimensions
+	 * @param width
 	 * @param height
 	 */
 	public SolarSystemAnimationPanel(int width, int height) {
@@ -59,37 +83,52 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 		System.out.print(width);
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
-		/* Initialise orbit centre */
+		/**
+		* Initialise orbit centre
+		*/
 		orbitCentre = new Position(width / 2, (height / 2) - 90);
-        /* Initialise sun radius */
+    /**
+		* Initialise solar radius
+		*/
 		sunRadius = 16;
-        /* Initialise orbit radii */
+    /**
+		* Initialise orbital radii
+		*/
 		earthOrbitRadius = 60;
 		mercuryOrbitRadius = (int) (earthOrbitRadius * 0.39);
 		venusOrbitRadius = (int) (earthOrbitRadius * 0.72);
 		marsOrbitRadius = (int) (earthOrbitRadius * 1.52);
 		jupiterOrbitRadius = (int) (earthOrbitRadius * 5.2);
 		asteroidOrbitRadius = (int) (earthOrbitRadius * 3.5);
-        /* Initialise orbit periods */
-		earthOrbitPeriod = 100; 
+    /**
+		* Initialise orbital periods
+		*/
+		earthOrbitPeriod = 100;
 		mercuryOrbitPeriod = earthOrbitPeriod * 0.241;
 		venusOrbitPeriod = earthOrbitPeriod * 0.616;
 		marsOrbitPeriod = earthOrbitPeriod * 1.9;
 		jupiterOrbitPeriod = earthOrbitPeriod * 11.8;
-        asteroidOrbitPeriod = earthOrbitPeriod * 3.5;
-        /* Initialise planets */
+    asteroidOrbitPeriod = earthOrbitPeriod * 3.5;
+    /**
+		* Create planets
+		*/
 		earth = new Planet("Earth",orbitCentre,earthOrbitRadius,earthOrbitPeriod,Color.cyan,10);
 		Planet mercury = new Planet("Mercury",orbitCentre,mercuryOrbitRadius,mercuryOrbitPeriod,Color.gray,5);
 		Planet venus = new Planet("Venus",orbitCentre,venusOrbitRadius,venusOrbitPeriod,Color.orange,9);
 		Planet mars = new Planet("Mars",orbitCentre,marsOrbitRadius,marsOrbitPeriod,Color.red,6);
 		Planet jupiter = new Planet("Jupiter",orbitCentre,jupiterOrbitRadius,jupiterOrbitPeriod,Color.yellow,50);
-		/* Initialise comets */
+		/**
+		* Create comets
+		*/
 		Comet comet = new Comet("Duncan's Comet", orbitCentre, 400, 0.8, 80, Color.MAGENTA, 4);
-    
+
 		planets = new ArrayList<Planet>();
 		asteroids = new ArrayList<Asteroid>();
 		comets = new ArrayList<Comet>();
-    
+
+		/**
+		* add objects to arraylists
+		*/
 		planets.add(earth);
 		planets.add(mercury);
 		planets.add(venus);
@@ -97,29 +136,43 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 		planets.add(jupiter);
 		comets.add(comet);
 
-		/* Construct asteroids and add to list */
+		/**
+		* Construct asteroids then add to arraylist
+		*/
 		for(int i=0; i<1000; i++){
 			asteroids.add(new Asteroid(asteroidOrbitRadius, asteroidOrbitPeriod, orbitCentre, Color.lightGray, 3));
 		}
-		
-		/* Add all celestial objects to one list */
+
+		/**
+		* Add all objects to master arraylist
+		*/
 		celestialBodies = new ArrayList<CelestialBody>();
 		celestialBodies.addAll(planets);
 		celestialBodies.addAll(asteroids);
 		celestialBodies.addAll(comets);
 	}
 
-	/* Paint celestial objects, planet and comet names, and time elapsed info */
+	/**
+	* Paint celestial objects
+	* names for planets and comets
+	* information for simulation time elapsed
+	*/
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		/* Fill in background */
+		/**
+		* Fill in background
+		*/
 		g.setColor(Color.black);
 		g.fillRect(0, 0, getWidth(), getHeight());
-        /* Paint the sun */
+    /**
+		* Paint sun
+		*/
 		g.setColor(Color.RED);
 		g.fillOval(orbitCentre.x()-sunRadius, orbitCentre.y()-sunRadius, 2*sunRadius, 2* sunRadius);
 
-        /* Paint planet orbit paths and names */
+    /**
+		* Paint planet orbit paths and names
+		 */
 		for(Planet planet:planets){
 			g.setColor(Color.WHITE);
 			g.drawOval(orbitCentre.x()-planet.getOrbitRadius(), orbitCentre.y()-planet.getOrbitRadius(),
@@ -131,34 +184,43 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 				g.drawChars(planet.name().toCharArray(), 0, planet.name().length(), planet.getPosition().x()+15, planet.getPosition().y()+15);
 			}
 		}
-		/* Paint celestial bodies */
+		/**
+		* Paint remaining celestial bodies
+		*/
 		for(CelestialBody celestialBody:celestialBodies){
 			g.setColor(celestialBody.colour());
-			g.fillOval(celestialBody.getPosition().x(), celestialBody.getPosition().y(), 
+			g.fillOval(celestialBody.getPosition().x(), celestialBody.getPosition().y(),
 					celestialBody.size(), celestialBody.size());
 		}
-        /* Paint comet names */
+    /**
+		* Paint comet names
+		*/
 		for(CelestialBody comet:comets){
 			g.setColor(comet.colour());
 			g.drawString(comet.name(), comet.getPosition().x() + 15, comet.getPosition().y()+20);
 		}
-		/* Paint time elapsed in earth years */
+		/**
+		* Paint time elapsed in years
+		*/
 		g.setColor(Color.white);
 		g.drawString("Time elapsed:", 1150, 185);
 		g.drawString(Integer.toString(earth.getOrbits())+" Earth Years", 1150, 200);
-		
+
 	}
 
 	/**
-     * This is called by the animation Timer object
-     * at regular intervals to update the animation
-     */
+  * MEthod for updating the animation of the simulation
+  */
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 	}
-	/** Start the animation */
+	/**
+	* Starts simulation when started
+	*/
 	public void start() {animationTimer.start();}
-	/** Stop the animation */
+	/**
+	Stops animation when stopped
+	*/
 	public void stop() {animationTimer.stop();}
 
 
