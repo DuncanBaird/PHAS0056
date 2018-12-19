@@ -1,37 +1,55 @@
 package module9;
 
+// import statements
 import java.awt.event.ActionEvent;
-
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-/*
- * App representing the solar system with start, stop buttons
+/**
+ * Application for running a simulation of our solar System
+ * @author Duncan Baird
+ * @version 1.0
  */
 
 public class SolarSystem {
 
+	/**
+	* Method for creating the GUI for the solar system simulation
+	* <p>
+	* Uses the Swing toolkit for running graphics. Sets simulation to end when
+	* window is closed and starts GUI in maximized window state.
+	*/
 	private static void createAndDisplayGui() {
 		JFrame frame = new JFrame("Simulation of our Solar System");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-		SolarSystemGuiPanel panel = new SolarSystemGuiPanel(); 
+		SolarSystemGuiPanel panel = new SolarSystemGuiPanel();
 
-		frame.add(panel);       // Add panel to frame
-		frame.pack(); // Set component sizes and layout
-		frame.setVisible(true); // Display the resulting frame
+		// Add panel to frame
+		frame.add(panel);
+		// Fits components and layout sizes
+		frame.pack();
+		// Displays frame
+		frame.setVisible(true);
 	}
-	/** Respond to button clicks */
+	/**
+	* Responds to button clicks in GUI
+	* @param arbitrary action even that toolkit can handle
+	*/
 	public void actionPerformed(ActionEvent e) {
-		
+
 	}
-	/** Call method to create and display GUI. */
+	/**
+	* Main method to run the GUI of the simulation
+	* <p>
+	* Runs simulation in Runnable from toolkit.
+	*/
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndDisplayGui();
 			}
-		}); 
+		});
 	}
 }
