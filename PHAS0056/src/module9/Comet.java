@@ -4,7 +4,7 @@ package module9;
 import java.awt.Color;
 
 /**
- * Abstract class for creating comets with hyperbolic orbits
+ * Class for creating comets with hyperbolic orbits
  *
  * @author Duncan Baird
  * @version 1.0
