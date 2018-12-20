@@ -13,8 +13,9 @@ import javax.swing.JPanel;
 
 /**
  * Class for creating GUI panel for simulation
+ * 
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 public class SolarSystemGuiPanel extends JPanel implements ActionListener {
 	/**

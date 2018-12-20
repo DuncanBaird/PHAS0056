@@ -7,7 +7,7 @@ import java.awt.Color;
  * Abstract class for creating celestial objects in solar system
  * 
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 public abstract class CelestialBody {
 

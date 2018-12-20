@@ -11,21 +11,16 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-/*
- * JPanel containing an animation of the solar system containing:
- * - planets: Mercury, Venus, Earth, Mars, Jupiter;
- * - asteroids
- * - comets
- */
+
  /**
-  * Class for creating panel for solar system simulation
-	* <p>
-	* Containing;planets: Mercury, Venus, Earth, Mars, Jupiter;
-  * asteroids; comets: Duncan's comet
-  *
-  * @author Duncan Baird
-  * @version 1.0
-  */
+ * Class for creating panel for solar system simulation
+ * <p>
+ * Containing;planets: Mercury, Venus, Earth, Mars, Jupiter; asteroids; comets:
+ * Duncan's comet
+ *
+ * @author Duncan Baird
+ * @version 1.1
+ */
 public class SolarSystemAnimationPanel extends JPanel implements ActionListener {
 
 	/**
@@ -80,7 +75,6 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 	 */
 	public SolarSystemAnimationPanel(int width, int height) {
 		setPreferredSize(new Dimension(width,height));
-		System.out.print(width);
 		animationTimer = new Timer(delay,this);
 		animationTimer.start();
 		/**
@@ -222,11 +216,4 @@ public class SolarSystemAnimationPanel extends JPanel implements ActionListener 
 	Stops animation when stopped
 	*/
 	public void stop() {animationTimer.stop();}
-
-
-
-
-
-
-
 }

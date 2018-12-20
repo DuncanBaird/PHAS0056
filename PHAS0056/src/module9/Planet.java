@@ -7,7 +7,7 @@ import java.awt.Color;
  * Class for creating celestial objects with circular orbits
  *
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 public class Planet extends CircularOrbitBody {
 
@@ -35,7 +35,7 @@ public class Planet extends CircularOrbitBody {
 		this.orbitCentre = orbitCentre;
 		this.orbitRadius = orbitRadius;
 		this.orbitPeriod = orbitTime;
-		// start at poisition relative to orbit centre
+		// start at position relative to orbit centre
 		this.position = new Position(orbitCentre.x(),orbitCentre.y()+this.orbitRadius);
 		this.angularSpeed = 2*Math.PI/this.orbitPeriod;
 		this.delta = 2*Math.PI*this.delay/(this.orbitPeriod*1000);

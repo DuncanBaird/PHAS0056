@@ -1,27 +1,40 @@
 package module9;
 
-/*
- * Class presents position of celestial object
+/**
+ * Class for position of celestial bodies
+ *
+ * @author Duncan Baird
+ * @version 1.1
  */
 public class Position {
-	/* x,y coordinates on panel */
+	/**
+	 * (x,y) coordinates
+	 */
 	private int x;
 	private int y;
-	/* 
-	 * Construct position of object
-	 * @param x  x-coordinate
-	 * @param y  y-coordinate
+
+	/**
+	 * Constructor for object'ss position
+	 * 
+	 * @param x x-coordinate
+	 * @param y y-coordinate
 	 */
 	Position(int x, int y) {
 		this.x=x;
 		this.y=y;
 	}
-	/* Setter methods */
+
+	/**
+	 * Set methods
+	 */
 	void setX(int x) {
 		this.x = x;
 	}
 	void setY(int y){this.y = y;}
-	/* Getter methods */
+
+	/**
+	 * Get methods
+	 */
 	int x() {
 		return this.x;
 	}

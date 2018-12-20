@@ -7,7 +7,7 @@ import java.awt.Color;
  * Class for creating comets with hyperbolic orbits
  *
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 public class Comet extends CelestialBody {
 

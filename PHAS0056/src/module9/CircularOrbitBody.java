@@ -4,7 +4,7 @@ package module9;
  * Abstract class for creating celestial objects with circular orbits
  *
  * @author Duncan Baird
- * @version 1.0
+ * @version 1.1
  */
 public abstract class CircularOrbitBody extends CelestialBody {
 	/**
