@@ -24,8 +24,8 @@ public class Audio {
 	 */
 	@Override
 	public String toString() {
-		return "Audio [filename=" + filename + ", instrument=" + instrument + ", f=" + f + ", N=" + N + ", maxA=" + maxA
-				+ "]";
+		return "Filename: " + filename + "; duration: " + this.getT() + " s; " + "amplitude: " + this.getA() + " dBFS"
+				+ "; instrument: " + instrument;
 	}
 
 	public Audio() {
