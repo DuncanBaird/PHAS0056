@@ -1,6 +1,12 @@
 package final2016;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Audio {
 
@@ -130,6 +136,35 @@ public class Audio {
 		}
 		double rms = Math.sqrt(sum / this.N);
 		return 20 * Math.log10(rms / this.maxA);
+	}
+
+	public static Audio parseNames(String line) {
+		Audio a = new Audio();
+		Scanner s = new Scanner(line);
+		if (s.hasNext()) {
+			a.filename = s.next();
+			a.instrument = s.next();
+		}
+		s.close();
+		return a;
+	}
+
+	public static ArrayList<Integer> parseData(String urlName) throws IOException {
+		ArrayList<Integer> numbers = new ArrayList<Integer>();
+		URL u = new URL(urlName);
+		InputStream is = u.openStream();
+		InputStreamReader isr = new InputStreamReader(is);
+		BufferedReader br = new BufferedReader(isr);
+		String line = "";
+		while ((line = br.readLine()) != null) {
+			Scanner s = new Scanner(line);
+			while (s.hasNext()) {
+				int number = s.nextInt();
+				numbers.add(number);
+			}
+			s.close();
+		}
+		return numbers;
 	}
 
 }
