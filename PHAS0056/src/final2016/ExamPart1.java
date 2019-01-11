@@ -36,7 +36,16 @@ public class ExamPart1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayList<Audio> sounds = new ArrayList<Audio>();
 
+		try {
+			sounds = dataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/exam_data/2016-17/");
+			for (Audio sound : sounds) {
+				System.out.println(sound);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }
