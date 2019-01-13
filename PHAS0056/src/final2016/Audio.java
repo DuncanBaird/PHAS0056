@@ -8,8 +8,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class for defining AUdio type objects
+ * 
+ * @author Duncan
+ *
+ */
 public class Audio {
 
+	/**
+	 * Member variables
+	 */
 	private String filename;
 	private String instrument;
 	private int f;
@@ -149,6 +158,13 @@ public class Audio {
 		return a;
 	}
 
+	/**
+	 * Method for parsing Audio associated data
+	 * 
+	 * @param urlName
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList<Integer> parseData(String urlName) throws IOException {
 		ArrayList<Integer> numbers = new ArrayList<Integer>();
 		URL u = new URL(urlName);

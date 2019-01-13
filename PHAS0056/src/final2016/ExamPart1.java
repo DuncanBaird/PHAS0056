@@ -7,8 +7,23 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
+/**
+ * Class for running audio analysis for part one of exam Prints out details of
+ * audio files from URL source
+ * 
+ * @author Duncan
+ *
+ */
 public class ExamPart1 {
 
+	/**
+	 * Method for pulling audio file data from URL and storing info of data into
+	 * ArrayList
+	 * 
+	 * @param dir
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList<Audio> dataFromURL(String dir) throws IOException {
 		ArrayList<Audio> sounds = new ArrayList<Audio>();
 		URL u = new URL(dir + "index.txt");
@@ -34,6 +49,11 @@ public class ExamPart1 {
 		return sounds;
 	}
 
+	/**
+	 * Main method for running analysis
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<Audio> sounds = new ArrayList<Audio>();
