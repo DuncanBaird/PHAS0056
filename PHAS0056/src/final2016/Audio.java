@@ -147,6 +147,20 @@ public class Audio {
 		return 20 * Math.log10(rms / this.maxA);
 	}
 
+	public double getSpectralDensity(double f) {
+		double N = this.getN();
+		double t = this.getT();
+		double sumCos = 0.0d;
+		double sumSin = 0.0d;
+		double z = 2 * Math.PI * f * t / N;
+		for (int n = 0; n < N; n++) {
+			sumCos += this.getDataPoints().get(n) + Math.cos(z * n);
+			sumSin += this.getDataPoints().get(n) + Math.sin(z * n);
+		}
+		double norm = t / Math.pow(N, 2);
+		return norm * (Math.pow(sumCos, 2) + Math.pow(sumSin, 2));
+	}
+
 	public static Audio parseNames(String line) {
 		Audio a = new Audio();
 		Scanner s = new Scanner(line);
