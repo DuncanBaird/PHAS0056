@@ -111,6 +111,7 @@ public class Flight {
 		this.departureTime = departureTime;
 		this.arrivalDate = arrivalDate;
 		this.arrivalTime = arrivalTime;
+		this.cost = cost;
 	}
 
 	/**
