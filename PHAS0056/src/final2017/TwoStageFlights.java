@@ -27,7 +27,8 @@ public class TwoStageFlights implements FlightFilter {
 						for (Flight j : list) {
 							if (j.getOrigin().equals(a.getCode()) && j.getDestination().equals(this.destination)) {
 								filtered.add(new Flight("2S", f.getOrigin(), j.getDestination(), f.getDepartureDate(),
-										f.getDepartureTime(), j.getArrivalDate(), j.getArrivalTime(), f.getCost()));
+										f.getDepartureTime(), j.getArrivalDate(), j.getArrivalTime(),
+										f.getCost() + j.getCost()));
 							}
 						}
 
