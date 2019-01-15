@@ -1,5 +1,7 @@
 package final2017;
 
+import java.util.Scanner;
+
 public class Flight {
 
 	private String flightcode;
@@ -101,5 +103,25 @@ public class Flight {
 		this.arrivalTime = arrivalTime;
 	}
 
+	/**
+	 * Parses line of data into parameters and returns Flight object
+	 */
+	public static Flight parseLine(String line) {
+		Scanner s = new Scanner(line);
+		s.useDelimiter(",");
+		Flight f = new Flight();
+		if (s.hasNext()) {
+			f.flightcode = s.next();
+			f.origin = s.next();
+			f.destination = s.next();
+			f.departureDate = s.next();
+			f.departureTime = s.next();
+			f.arrivalDate = s.next();
+			f.arrivalTime = s.next();
+			f.cost = s.nextDouble();
+		}
+		s.close();
+		return f;
+	}
 
 }
