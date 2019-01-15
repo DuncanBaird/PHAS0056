@@ -58,7 +58,7 @@ public class Airport {
 		return "Airport [code=" + code + ", name=" + name + ", timeZone=" + timeZone + "]";
 	}
 
-	public static Airport ParseLine(String line) {
+	public static Airport parseLine(String line) {
 		Scanner s = new Scanner(line);
 		s.useDelimiter(",");
 		Airport a = new Airport();
