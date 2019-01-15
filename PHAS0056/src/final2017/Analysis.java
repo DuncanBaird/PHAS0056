@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Analysis {
 
@@ -17,8 +18,8 @@ public class Analysis {
 	 * @return airports
 	 * @throws IOException
 	 */
-	public static ArrayList<Airport> airportsFromURL(String url) throws IOException {
-		ArrayList<Airport> airports = new ArrayList<Airport>();
+	public static HashMap<String, Airport> airportsFromURL(String url) throws IOException {
+		HashMap<String, Airport> airports = new HashMap<String, Airport>();
 		URL u = new URL(url);
 		InputStream is = u.openStream();
 		// ensures special characters are read correctly by java
@@ -27,7 +28,7 @@ public class Analysis {
 		String line = "";
 		while ((line = br.readLine()) != null) {
 			Airport a = Airport.parseLine(line);
-			airports.add(a);
+			airports.put(a.getCode(), a);
 		}
 		return airports;
 

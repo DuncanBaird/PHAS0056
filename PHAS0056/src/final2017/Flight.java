@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Flight {
@@ -16,6 +17,8 @@ public class Flight {
 	private String arrivalDate;
 	private String arrivalTime;
 	private double cost;
+	private HashMap<String, Airport> airports = dataPull();
+
 
 	/**
 	 * @return the flightCOde
@@ -81,10 +84,11 @@ public class Flight {
 	 */
 	@Override
 	public String toString() {
-		return "Flight [flightcode=" + flightcode + ", origin=" + origin + ", destination=" + destination
-				+ ", departureDate=" + departureDate + ", departureTime=" + departureTime + ", arrivalDate="
-				+ arrivalDate + ", arrivalTime=" + arrivalTime + ", cost=" + cost + ", duration=" + this.flightTime()
-				+ "]";
+		return "Flightcode: " + flightcode + ", origin: " + airports.get(origin).getName() + ", destination: "
+				+ airports.get(destination).getName()
+				+ ", departure date: " + departureDate + ", departure time: " + departureTime + ", arrival date: "
+				+ arrivalDate + ", arrival time: " + arrivalTime + ", cost(£): " + cost + ", duration (minutes): "
+				+ this.flightTime();
 	}
 
 
@@ -146,6 +150,18 @@ public class Flight {
 
 		long duration = zt1.until(zt2, ChronoUnit.MINUTES);
 		return duration;
+	}
+
+	public HashMap<String, Airport> dataPull() {
+		HashMap<String, Airport> airports = new HashMap<String, Airport>();
+
+		try {
+			airports = Analysis
+					.airportsFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/exam_data/2017-18/airports.txt");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return airports;
 	}
 
 }
