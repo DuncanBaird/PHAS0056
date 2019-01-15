@@ -56,5 +56,14 @@ public class Analysis {
 
 	}
 
+	public static String airportName(ArrayList<Airport> airports, String code) {
+		String name = "";
+		for (Airport a : airports) {
+			if (a.getCode().equals(code)) {
+				name = a.getName();
+			}
+		}
+		return name;
+	}
 
 }
