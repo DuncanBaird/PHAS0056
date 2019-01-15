@@ -67,4 +67,39 @@ public class Flight {
 		return cost;
 	}
 
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Flight [flightcode=" + flightcode + ", origin=" + origin + ", destination=" + destination
+				+ ", departureDate=" + departureDate + ", departureTime=" + departureTime + ", arrivalDate="
+				+ arrivalDate + ", arrivalTime=" + arrivalTime + ", cost=" + cost + "]";
+	}
+
+	/**
+	 * Empty constructor
+	 */
+	public Flight() {
+
+	}
+
+	/**
+	 * Constructor for Flight object
+	 */
+	public Flight(String flightCode, String origin, String destination, String departureDate, String departureTime,
+			String arrivalDate, String arrivalTime, double cost) {
+		this.flightcode = flightCode;
+		this.origin = origin;
+		this.destination = destination;
+		this.departureDate = departureDate;
+		this.departureTime = departureTime;
+		this.arrivalDate = arrivalDate;
+		this.arrivalTime = arrivalTime;
+	}
+
+
 }
