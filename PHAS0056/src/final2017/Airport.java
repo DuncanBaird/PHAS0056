@@ -60,7 +60,7 @@ public class Airport {
 
 	public static Airport parseLine(String line) {
 		Scanner s = new Scanner(line);
-		s.useDelimiter(",");
+		s.useDelimiter(", ");
 		Airport a = new Airport();
 
 		if (s.hasNext()) {

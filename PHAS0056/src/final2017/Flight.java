@@ -112,7 +112,7 @@ public class Flight {
 	 */
 	public static Flight parseLine(String line) {
 		Scanner s = new Scanner(line);
-		s.useDelimiter(",");
+		s.useDelimiter(", ");
 		Flight f = new Flight();
 		if (s.hasNext()) {
 			f.flightcode = s.next();
@@ -133,7 +133,7 @@ public class Flight {
 	 * 
 	 * @return Duration in minutes
 	 */
-	public double flightTime() {
+	public long flightTime() {
 		LocalDateTime lt1 = LocalDateTime.parse("2018-01-02T09:05");
 		ZoneId z1 = ZoneId.of("Europe/London");
 		ZonedDateTime zt1 = ZonedDateTime.of(lt1, z1);
@@ -142,7 +142,7 @@ public class Flight {
 		ZoneId z2 = ZoneId.of("Europe/Paris");
 		ZonedDateTime zt2 = ZonedDateTime.of(lt2, z2);
 
-		double duration = zt1.until(zt2, ChronoUnit.MINUTES);
+		long duration = zt1.until(zt2, ChronoUnit.MINUTES);
 
 		return duration;
 	}
