@@ -1,11 +1,19 @@
 package final2017;
 
+import java.util.Scanner;
+
 public class Airport {
 
 	private String code;
 	private String name;
 	private String timeZone;
 
+	/**
+	 * empty constructor for airport object
+	 */
+	public Airport() {
+
+	}
 	/**
 	 * constructor for airport object
 	 * 
@@ -50,4 +58,18 @@ public class Airport {
 		return "Airport [code=" + code + ", name=" + name + ", timeZone=" + timeZone + "]";
 	}
 
+	public static Airport ParseLine(String line) {
+		Scanner s = new Scanner(line);
+		s.useDelimiter(",");
+		Airport a = new Airport();
+
+		if (s.hasNext()) {
+			a.code = s.next();
+			a.name = s.next();
+			a.timeZone = s.next();
+
+		}
+		s.close();
+		return a;
+	}
 }
