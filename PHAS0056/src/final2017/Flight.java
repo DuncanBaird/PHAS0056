@@ -2,7 +2,7 @@ package final2017;
 
 public class Flight {
 
-	private String flightCOde;
+	private String flightcode;
 	private String origin;
 	private String destination;
 	private String departureDate;
@@ -14,8 +14,8 @@ public class Flight {
 	/**
 	 * @return the flightCOde
 	 */
-	public String getFlightCOde() {
-		return flightCOde;
+	public String getFlightcode() {
+		return flightcode;
 	}
 
 	/**
