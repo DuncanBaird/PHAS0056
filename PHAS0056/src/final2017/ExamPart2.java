@@ -30,7 +30,7 @@ public class ExamPart2 {
 				System.out.println(f);
 			}
 			System.out.println("\nFastest flight from LHR to ATH that costs no more than £200:");
-			System.out.println(Collections.min(filteredLocationCost, new FlightComp()));
+			System.out.println(Collections.min(filteredLocationCost, new FlightCompTime()));
 
 		} catch (Exception e) {
 			System.out.println(e);
