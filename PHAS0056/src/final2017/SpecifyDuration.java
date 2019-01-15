@@ -1,20 +1,24 @@
 package final2017;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class SpecifyDuration implements FlightFilter {
 
-	@Override
-	public Collection<Flight> filter(Collection<Flight> flights, Criterion c) {
-		// TODO Auto-generated method stub
-		Collection<Flight> filteredFlights = new ArrayList<Flight>();
-		for (Flight f : flights) {
-			if (f.flightTime() <= c.flightTime()) {
-				filteredFlights.add(f);
+	double limit;
+
+	public SpecifyDuration(double limit) {
+		this.limit = limit;
+	}
+
+	public ArrayList<Flight> filter(ArrayList<Flight> list) {
+		ArrayList<Flight> filtered = new ArrayList<Flight>();
+
+		for (Flight f : list) {
+			if (f.flightTime() <= this.limit) {
+				filtered.add(f);
 			}
 		}
-		return null;
+		return filtered;
 	}
 
 }

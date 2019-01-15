@@ -1,8 +1,8 @@
 package final2017;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 public interface FlightFilter {
 
-	Collection<Flight> filter(Collection<Flight> flights, Criterion c);
+	public ArrayList<Flight> filter(ArrayList<Flight> list);
 }
