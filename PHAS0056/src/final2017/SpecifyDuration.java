@@ -14,7 +14,7 @@ public class SpecifyDuration implements FlightFilter {
 		ArrayList<Flight> filtered = new ArrayList<Flight>();
 
 		for (Flight f : list) {
-			if (f.flightTime() <= this.limit) {
+			if (f.flightTime() <= this.limit * 60) {
 				filtered.add(f);
 			}
 		}
