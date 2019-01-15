@@ -83,8 +83,10 @@ public class Flight {
 	public String toString() {
 		return "Flight [flightcode=" + flightcode + ", origin=" + origin + ", destination=" + destination
 				+ ", departureDate=" + departureDate + ", departureTime=" + departureTime + ", arrivalDate="
-				+ arrivalDate + ", arrivalTime=" + arrivalTime + ", cost=" + cost + "]";
+				+ arrivalDate + ", arrivalTime=" + arrivalTime + ", cost=" + cost + ", duration=" + this.flightTime()
+				+ "]";
 	}
+
 
 	/**
 	 * Empty constructor
@@ -134,16 +136,15 @@ public class Flight {
 	 * @return Duration in minutes
 	 */
 	public long flightTime() {
-		LocalDateTime lt1 = LocalDateTime.parse("2018-01-02T09:05");
+		LocalDateTime lt1 = LocalDateTime.parse(this.departureDate + "T" + this.departureTime);
 		ZoneId z1 = ZoneId.of("Europe/London");
 		ZonedDateTime zt1 = ZonedDateTime.of(lt1, z1);
 
-		LocalDateTime lt2 = LocalDateTime.parse("2018-01-02T11:20");
+		LocalDateTime lt2 = LocalDateTime.parse(this.arrivalDate + "T" + this.arrivalTime);
 		ZoneId z2 = ZoneId.of("Europe/Paris");
 		ZonedDateTime zt2 = ZonedDateTime.of(lt2, z2);
 
 		long duration = zt1.until(zt2, ChronoUnit.MINUTES);
-
 		return duration;
 	}
 
