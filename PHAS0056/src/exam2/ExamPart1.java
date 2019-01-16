@@ -11,9 +11,12 @@ public class ExamPart1 {
 		try {
 			locations = Analysis
 					.locationsFromURL("http://www.hep.ucl.ac.uk/undergrad/0056/exam-data/2018-19/locations.txt");
+			System.out.println("Total number of images:" + locations.size());
+
 			for (Entry<Integer, Location> entry : locations.entrySet()) {
 				System.out.println(entry);
 			}
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
