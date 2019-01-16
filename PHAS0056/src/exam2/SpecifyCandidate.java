@@ -2,11 +2,11 @@ package exam2;
 
 import java.util.ArrayList;
 
-public class SpecifySpecies implements ImageSelector {
+public class SpecifyCandidate implements ImageSelector {
 
 	String species;
 
-	public SpecifySpecies(String species) {
+	public SpecifyCandidate(String species) {
 		this.species = species;
 	}
 
@@ -14,8 +14,13 @@ public class SpecifySpecies implements ImageSelector {
 		// TODO Auto-generated method stub
 		ArrayList<Location> filtered = new ArrayList<Location>();
 		for (Location l : locations) {
+			int j = 0;
 			if (Location.findSpecies(l.getImageUUID()).equals(this.species)) {
-				filtered.add(l);
+				j++;
+				if (j > (locations.size() / 2)) {
+					filtered.add(l);
+				}
+
 			}
 		}
 		return filtered;

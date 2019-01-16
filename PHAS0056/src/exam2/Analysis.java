@@ -32,6 +32,21 @@ public class Analysis {
 
 	}
 
+	public static ArrayList<Location> arrayLocationsFromURL(String url) throws IOException {
+		ArrayList<Location> locations = new ArrayList<Location>();
+		URL u = new URL(url);
+		InputStream is = u.openStream();
+		InputStreamReader isr = new InputStreamReader(is);
+		BufferedReader br = new BufferedReader(isr);
+		String line = "";
+		while ((line = br.readLine()) != null) {
+			Location l = Location.parseLine(line);
+			locations.add(l);
+		}
+		return locations;
+
+	}
+
 	public static ArrayList<Classification> classificationsFromURL(String url) throws IOException {
 		ArrayList<Classification> classifications = new ArrayList<Classification>();
 		URL u = new URL(url);
