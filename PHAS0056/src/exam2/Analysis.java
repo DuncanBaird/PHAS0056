@@ -48,4 +48,23 @@ public class Analysis {
 
 	}
 
+	public static HashMap<Integer, Integer> classificationFrequency(int limit, HashMap<Integer, Location> locations,
+			ArrayList<Classification> classifications) {
+		HashMap<Integer, Integer> classificationFrequency = new HashMap<Integer, Integer>();
+
+		for (int i = 0; i < locations.size(); i++) {
+			for (Classification classification : classifications) {
+				int j = 0;
+				if (classification.getImageUUID() == i) {
+					j++;
+
+				}
+				if (j > 0) {
+					classificationFrequency.put(i, j);
+				}
+			}
+		}
+		return classificationFrequency;
+	}
+
 }
