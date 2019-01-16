@@ -3,15 +3,30 @@ package exam2;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class for answering Part 1 of Exam. Prints total number of images on URL.
+ * Prints number of images classified by at least one volunteer. Prints image
+ * info for images classified by at least 1o volunteers
+ * 
+ * @author
+ *
+ */
 public class ExamPart1 {
 
+	/**
+	 * Main method for implementing data acquisition and printing data in desired
+	 * formats
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Creating collections
 		HashMap<Integer, Location> locations = new HashMap<Integer, Location>();
 		ArrayList<Classification> classifications = new ArrayList<Classification>();
 		
 
 		try {
+			// pulling data form URLs
 			locations = Analysis
 					.locationsFromURL("http://www.hep.ucl.ac.uk/undergrad/0056/exam-data/2018-19/locations.txt");
 			System.out.println("Total number of images: " + locations.size());
