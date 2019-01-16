@@ -52,6 +52,13 @@ public class Location {
 	public static Location parseLine(String line) {
 		Scanner s = new Scanner(line);
 		Location l = new Location();
+		if (s.hasNext()) {
+			l.imageUUID = s.nextInt();
+			l.latitude = s.nextDouble();
+			l.longitude = s.nextDouble();
+		}
+		s.close();
+		return l;
 
 	}
 
