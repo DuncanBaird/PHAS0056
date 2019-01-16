@@ -1,16 +1,18 @@
 package exam2;
 
-public class Locations {
+import java.util.Scanner;
+
+public class Location {
 
 	private int imageUUID;
 	private double latitude;
 	private double longitude;
 
-	public Locations() {
+	public Location() {
 		
 	}
 
-	public Locations(int imageUUID, double latitude, double longitude) {
+	public Location(int imageUUID, double latitude, double longitude) {
 		this.imageUUID = imageUUID;
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -23,7 +25,7 @@ public class Locations {
 	 */
 	@Override
 	public String toString() {
-		return "Locations [imageUUID=" + imageUUID + ", latitude=" + latitude + ", longitude=" + longitude + "]";
+		return "Location [imageUUID=" + imageUUID + ", latitude=" + latitude + ", longitude=" + longitude + "]";
 	}
 
 	/**
@@ -45,6 +47,12 @@ public class Locations {
 	 */
 	public double getLongitude() {
 		return longitude;
+	}
+
+	public static Location parseLine(String line) {
+		Scanner s = new Scanner(line);
+		Location l = new Location();
+
 	}
 
 }
