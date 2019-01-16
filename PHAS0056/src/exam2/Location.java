@@ -15,8 +15,8 @@ public class Location {
 	 * Member variables
 	 */
 	private int imageUUID;
-	private double latitude;
-	private double longitude;
+	private double latitude; // in degrees
+	private double longitude;// in degrees
 
 	/**
 	 * Blank constructor
