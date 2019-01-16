@@ -3,16 +3,34 @@ package exam2;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class implementing ImageSelector for filtering by specifying a candidate
+ * species
+ * 
+ * @author
+ *
+ */
 public class SpecifyCandidate implements ImageSelector {
 
+	/**
+	 * Member variable
+	 */
 	String species;
 
+	/**
+	 * Constructor for filtering by candidate species
+	 * 
+	 * @param species
+	 */
 	public SpecifyCandidate(String species) {
 		this.species = species;
 	}
 
+	/**
+	 * Method for filtering ArrayList for candicdate species
+	 */
 	public ArrayList<Location> select(ArrayList<Location> locations) throws Exception {
-		// TODO Auto-generated method stub
+
 
 		ArrayList<Classification> classifications = new ArrayList<Classification>();
 		classifications = Analysis
