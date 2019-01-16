@@ -27,7 +27,7 @@ public class SpecifyCandidate implements ImageSelector {
 	}
 
 	/**
-	 * Method for filtering ArrayList for candicdate species
+	 * Method for filtering ArrayList for candidate species
 	 */
 	public ArrayList<Location> select(ArrayList<Location> locations) throws Exception {
 
@@ -38,6 +38,7 @@ public class SpecifyCandidate implements ImageSelector {
 
 		HashMap<Integer, Location> images = new HashMap<Integer, Location>();
 		images = Analysis.locationsFromURL("http://www.hep.ucl.ac.uk/undergrad/0056/exam-data/2018-19/locations.txt");
+
 
 		ArrayList<Location> filtered = new ArrayList<Location>();
 		ArrayList<Classification> filteredClass = new ArrayList<Classification>();
