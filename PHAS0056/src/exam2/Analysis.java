@@ -8,13 +8,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class for containing methods for use in analysis of the data for the Exam
+ * 
+ * @author
+ *
+ */
 public class Analysis {
 
 	/**
 	 * Returns HashMap of locations from URL input
 	 * 
 	 * @param url
-	 * @return airports
+	 * @return locations
 	 * @throws IOException
 	 */
 	public static HashMap<Integer, Location> locationsFromURL(String url) throws IOException {
@@ -32,6 +38,13 @@ public class Analysis {
 
 	}
 
+	/**
+	 * Returns ArrayList of Locations from URL input
+	 * 
+	 * @param url
+	 * @return locations
+	 * @throws IOException
+	 */
 	public static ArrayList<Location> arrayLocationsFromURL(String url) throws IOException {
 		ArrayList<Location> locations = new ArrayList<Location>();
 		URL u = new URL(url);
@@ -47,6 +60,13 @@ public class Analysis {
 
 	}
 
+	/**
+	 * Returns ArrayList of Classifications from URL input
+	 * 
+	 * @param url
+	 * @return classifications
+	 * @throws IOException
+	 */
 	public static ArrayList<Classification> classificationsFromURL(String url) throws IOException {
 		ArrayList<Classification> classifications = new ArrayList<Classification>();
 		URL u = new URL(url);
@@ -63,6 +83,14 @@ public class Analysis {
 
 	}
 
+	/**
+	 * Returns HashMap of frequencies of image classifications
+	 * 
+	 * @param limit
+	 * @param locations
+	 * @param classifications
+	 * @return frequencies of image classifications
+	 */
 	public static HashMap<Integer, Integer> classificationFrequency(int limit, HashMap<Integer, Location> locations,
 			ArrayList<Classification> classifications) {
 		HashMap<Integer, Integer> classificationFrequency = new HashMap<Integer, Integer>();
