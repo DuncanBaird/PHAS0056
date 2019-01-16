@@ -59,7 +59,7 @@ public class Analysis {
 					j++;
 
 				}
-				if (j > 0) {
+				if (j > limit) {
 					classificationFrequency.put(i, j);
 				}
 			}
