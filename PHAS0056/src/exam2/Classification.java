@@ -45,6 +45,7 @@ public class Classification {
 		Classification c = new Classification();
 		if (s.hasNext()) {
 			c.imageUUID = s.nextInt();
+			s.nextInt();
 			c.speciesName = s.next();
 		}
 		s.close();
