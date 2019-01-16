@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Analysis {
@@ -28,6 +29,22 @@ public class Analysis {
 			locations.put(l.getImageUUID(), l);
 		}
 		return locations;
+
+	}
+
+	public static ArrayList<Classification> classificationsFromURL(String url) throws IOException {
+		ArrayList<Classification> classifications = new ArrayList<Classification>();
+		URL u = new URL(url);
+		InputStream is = u.openStream();
+		InputStreamReader isr = new InputStreamReader(is);
+		BufferedReader br = new BufferedReader(isr);
+		String line = "";
+		while ((line = br.readLine()) != null) {
+			Classification c = Classification.parseLine(line);
+			classifications.add(c);
+
+		}
+		return classifications;
 
 	}
 
