@@ -3,16 +3,35 @@ package exam2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class for creating objects to represent images taken at locations
+ * 
+ * @author
+ *
+ */
 public class Location {
 
+	/**
+	 * Member variables
+	 */
 	private int imageUUID;
 	private double latitude;
 	private double longitude;
 
+	/**
+	 * Blank constructor
+	 */
 	public Location() {
 		
 	}
 
+	/**
+	 * Constructor for Location object to represent image
+	 * 
+	 * @param imageUUID
+	 * @param latitude
+	 * @param longitude
+	 */
 	public Location(int imageUUID, double latitude, double longitude) {
 		this.imageUUID = imageUUID;
 		this.latitude = latitude;
@@ -20,9 +39,9 @@ public class Location {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * toString method for Location object. Also finds expert identified species
+	 * name to include in print
 	 * 
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
@@ -51,6 +70,12 @@ public class Location {
 		return longitude;
 	}
 
+	/**
+	 * Parseline method for parsing string data into construction of location object
+	 * 
+	 * @param line
+	 * @return new Location object of an image
+	 */
 	public static Location parseLine(String line) {
 		Scanner s = new Scanner(line);
 		Location l = new Location();
@@ -64,6 +89,13 @@ public class Location {
 
 	}
 
+	/**
+	 * Method for finding expert species name identification from image UUID. Uses
+	 * external data from URL. If data not available it returns a no data statement.
+	 * 
+	 * @param imageUUID
+	 * @return species name or no data statement
+	 */
 	public static String findSpecies(int imageUUID) {
 		ArrayList<Classification> species = new ArrayList<Classification>();
 		try {
