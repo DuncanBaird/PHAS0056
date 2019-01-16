@@ -40,9 +40,7 @@ public class SpecifyCandidate implements ImageSelector {
 
 		for (Location l : locations) {
 			if (frequencyClassCorrect.get(l.getImageUUID()) != null) {
-				System.out.println("suprise" + frequencyClassCorrect.get(l.getImageUUID()));
 				if (frequencyClassCorrect.get(l.getImageUUID()) > frequencyClass.get(l.getImageUUID())) {
-					System.out.println("suprise");
 					filtered.add(l);
 				}
 			}
