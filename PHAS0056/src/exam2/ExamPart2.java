@@ -2,10 +2,20 @@ package exam2;
 
 import java.util.ArrayList;
 
+/**
+ * Class for answering part 2 in exam
+ * 
+ * @author
+ *
+ */
 public class ExamPart2 {
 
+	/**
+	 * Main method for filtering image data by species
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ArrayList<Location> locations = new ArrayList<Location>();
 
 		try {
