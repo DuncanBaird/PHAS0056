@@ -53,8 +53,9 @@ public class Analysis {
 		HashMap<Integer, Integer> classificationFrequency = new HashMap<Integer, Integer>();
 
 		for (int i = 0; i < locations.size(); i++) {
+			int j = 0;
 			for (Classification classification : classifications) {
-				int j = 0;
+
 				if (classification.getImageUUID() == i) {
 					j++;
 

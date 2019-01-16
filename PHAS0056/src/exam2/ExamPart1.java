@@ -2,7 +2,6 @@ package exam2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
 
 public class ExamPart1 {
 
@@ -26,10 +25,11 @@ public class ExamPart1 {
 							+ Analysis.classificationFrequency(0, locations, classifications).size());
 			
 
-			for (Entry<Integer, Location> entry : locations.entrySet()) {
-				System.out.println(entry);
-			}
+			System.out.println("The images that were classified at least ten times: ");
 			
+			for (Integer s : Analysis.classificationFrequency(9, locations, classifications).keySet()) {
+				System.out.println(locations.get(s));
+			}
 			
 
 		} catch (Exception e) {

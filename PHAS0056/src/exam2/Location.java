@@ -25,7 +25,7 @@ public class Location {
 	 */
 	@Override
 	public String toString() {
-		return "Location [imageUUID=" + imageUUID + ", latitude=" + latitude + ", longitude=" + longitude + "]";
+		return "Image UUID: " + imageUUID + ", latitude: " + latitude + ", longitude: " + longitude;
 	}
 
 	/**
