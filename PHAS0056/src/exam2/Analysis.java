@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class Analysis {
 
 	/**
-	 * Returns ArrayList of airports from URL input
+	 * Returns HashMap of locations from URL input
 	 * 
 	 * @param url
 	 * @return airports
